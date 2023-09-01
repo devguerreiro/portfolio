@@ -2,34 +2,70 @@
 import { Image } from "astro:assets";
 import Logo from "../static/logo.png";
 
-import MenuIcon from "../components/icons/MenuIcon.astro";
-import SunIcon from "../components/icons/SunIcon.astro";
-import MoonIcon from "../components/icons/MoonIcon.astro";
+import MenuIcon from "./icons/MenuIcon.astro";
+import SunIcon from "./icons/SunIcon.astro";
+import MoonIcon from "./icons/MoonIcon.astro";
+import GreetingIcon from "./icons/GreetingIcon.astro";
+import InfoIcon from "./icons/InfoIcon.astro";
+import PresentationIcon from "./icons/PresentationIcon.astro";
 ---
 
-<header class="px-8 md:px-0 flex items-center">
+<header class="px-8 flex items-center md:px-0">
   <div>
     <Image
       src={Logo}
       alt="Devguerreiro's logo of an warrior who looks like an spartan using a notebook for programming"
-      width={85}
-      height={85}
+      width={75}
+      height={75}
     />
   </div>
-  <div class="hidden md:block md:flex-grow md:mr-20">
-    <nav>
-      <ul class="md:flex md:justify-end md:gap-16">
-        <li>Whatsup</li>
-        <li>About</li>
-        <li>Deeds</li>
+  <div
+    class="absolute md:relative top-14 md:top-0 right-16 md:right-0 md:flex-grow md:block md:mr-20"
+  >
+    <nav
+      class="hidden md:block bg-white md:bg-inherit shadow-md md:shadow-none rounded-md md:rounded-none p-8 md:p-0"
+    >
+      <ul
+        class="flex flex-col md:flex-row items-center md:justify-end gap-4 md:gap-16"
+      >
+        <div class="w-full md:w-auto flex md:block">
+          <GreetingIcon width={24} height={24} class="mr-4 md:mr-0 md:hidden" />
+          <li>Home</li>
+        </div>
+        <div class="w-full md:w-auto flex md:block">
+          <InfoIcon width={24} height={24} class="mr-4 md:mr-0 md:hidden" />
+          <li>About</li>
+        </div>
+        <div class="w-full md:w-auto flex md:block">
+          <PresentationIcon
+            width={24}
+            height={24}
+            class="mr-4 md:mr-0 md:hidden"
+          />
+          <li>Projects</li>
+        </div>
       </ul>
     </nav>
   </div>
-  <div class="hidden bg-red-400 rounded-md md:flex md:gap-4 md:px-4 md:py-2">
+  <div class="hidden rounded-md md:flex md:gap-6 md:px-4 md:py-2">
     <SunIcon width={24} height={24} />
     <MoonIcon width={24} height={24} />
   </div>
-  <div class="md:hidden flex-grow flex justify-end">
+  <div class="menu-icon absolute top-6 right-8 md:relative md:hidden">
     <MenuIcon width={32} height={32} />
   </div>
 </header>
+
+<script>
+  const menuIcon = document.querySelector(".menu-icon .icon");
+  menuIcon?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const nav = document.querySelector("nav");
+    nav?.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", (e) => {
+    const nav = document.querySelector("nav");
+    if (nav && !nav.classList.contains("hidden")) nav.classList.add("hidden");
+  });
+</script>

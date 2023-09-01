@@ -9,7 +9,7 @@ interface Props {
 const { alt, width, height, class: className } = Astro.props;
 ---
 
-<i class={className}>
+<i class:list={["icon", className]}>
   <svg
     width={width}
     height={height}
