@@ -1,0 +1,23 @@
+---
+interface Props {
+  class?: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
+const { alt, width, height, class: className } = Astro.props;
+---
+
+<i class={className}>
+  <svg
+    width={width}
+    height={height}
+    aria-label={alt}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <slot />
+  </svg>
+</i>

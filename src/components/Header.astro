@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import Logo from "../static/logo.png";
+
+import MenuIcon from "../components/icons/MenuIcon.astro";
+import SunIcon from "../components/icons/SunIcon.astro";
+import MoonIcon from "../components/icons/MoonIcon.astro";
+---
+
+<header class="px-8 md:px-0 flex items-center">
+  <div>
+    <Image
+      src={Logo}
+      alt="Devguerreiro's logo of an warrior who looks like an spartan using a notebook for programming"
+      width={85}
+      height={85}
+    />
+  </div>
+  <div class="hidden md:block md:flex-grow md:mr-20">
+    <nav>
+      <ul class="md:flex md:justify-end md:gap-16">
+        <li>Whatsup</li>
+        <li>About</li>
+        <li>Deeds</li>
+      </ul>
+    </nav>
+  </div>
+  <div class="hidden bg-red-400 rounded-md md:flex md:gap-4 md:px-4 md:py-2">
+    <SunIcon width={24} height={24} />
+    <MoonIcon width={24} height={24} />
+  </div>
+  <div class="md:hidden flex-grow flex justify-end">
+    <MenuIcon width={32} height={32} />
+  </div>
+</header>
