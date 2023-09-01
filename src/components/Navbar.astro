@@ -1,0 +1,39 @@
+---
+import GreetingIcon from "./icons/GreetingIcon.astro";
+import InfoIcon from "./icons/InfoIcon.astro";
+import PresentationIcon from "./icons/PresentationIcon.astro";
+---
+
+<div
+  id="navbar"
+  class="hidden absolute md:relative top-14 md:top-0 right-16 md:right-0 md:flex-grow md:block md:mr-20"
+>
+  <nav
+    class="bg-white md:bg-inherit shadow-md md:shadow-none rounded-md md:rounded-none p-8 md:p-0"
+  >
+    <ul
+      class="flex flex-col md:flex-row items-center md:justify-end gap-4 md:gap-16"
+    >
+      <div class="w-full md:w-auto flex md:block">
+        <GreetingIcon class="mr-4 md:mr-0 md:hidden" />
+        <li>Home</li>
+      </div>
+      <div class="w-full md:w-auto flex md:block">
+        <InfoIcon class="mr-4 md:mr-0 md:hidden" />
+        <li>About</li>
+      </div>
+      <div class="w-full md:w-auto flex md:block">
+        <PresentationIcon class="mr-4 md:mr-0 md:hidden" />
+        <li>Projects</li>
+      </div>
+    </ul>
+  </nav>
+</div>
+
+<script>
+  document.addEventListener("click", () => {
+    const navbar = document.querySelector("#navbar");
+    if (navbar && !navbar.classList.contains("hidden"))
+      navbar.classList.add("hidden");
+  });
+</script>
