@@ -1,0 +1,17 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  class?: string;
+  width?: number;
+  height?: number;
+}
+
+const { class: className, width, height } = Astro.props;
+---
+
+<Icon alt="Twitch.tv's icon" class={className} width={width} height={height}>
+  <path
+    d="M21.6788 3V14.74L16.9874 19.435H13.0782L10.6436 21.783H7.60556V19.435H3.6964V6.13L4.92219 3H21.6788ZM20.1153 4.565H6.82233V16.305H9.94927V18.652L12.296 16.304H16.9864L20.1133 13.174V4.565H20.1153ZM16.9884 7.695V12.391H15.4239V7.696H16.9874L16.9884 7.695ZM13.0782 7.695V12.391H11.5147V7.696L13.0782 7.695Z"
+    fill="currentColor"></path>
+</Icon>

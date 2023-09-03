@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
-import Logo from "../static/logo.png";
+import LogoBlack from "../static/logo-black.png";
+import LogoWhite from "../static/logo-white.png";
 
 import MenuIcon from "./icons/MenuIcon.astro";
 import SunIcon from "./icons/SunIcon.astro";
@@ -9,10 +10,10 @@ import MoonIcon from "./icons/MoonIcon.astro";
 import Navbar from "./Navbar.astro";
 ---
 
-<header class="px-8 flex items-center md:px-0">
+<header class="flex items-center md:px-0">
   <div id="logo">
     <Image
-      src={Logo}
+      src={LogoBlack}
       alt="A logo of an warrior who looks like an spartan using a notebook for programming"
       width={75}
       height={75}

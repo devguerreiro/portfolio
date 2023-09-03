@@ -1,8 +1,62 @@
 ---
+import { Image } from "astro:assets";
+
+import Selfie from "../static/selfie.jpg";
+
 import Layout from "../layouts/Layout.astro";
+
+import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
+import GitHubIcon from "../components/icons/GitHubIcon.astro";
+import TwitchIcon from "../components/icons/TwitchIcon.astro";
+import OnlyFansIcon from "../components/icons/OnlyFansIcon.astro";
 ---
 
-<Layout
-  title="Welcome to My Portfolio"
-  description="devguerreiro's portoflio"
-/>
+<Layout title="devguerreiro's portfolio" description="Greetings for you">
+  <main class="flex items-center">
+    <div id="content" class="mt-20">
+      <div id="greeting">
+        <h1 class="text-4xl">Whatsup, 🤙</h1>
+        <h2 class="text-2xl mt-4">
+          I'm <b>devguerreiro</b> and I work as a Software Engineer
+        </h2>
+        <button
+          class="bg-black text-white rounded-sm w-full py-2 mt-8"
+          type="button"
+        >
+          GimMe a CraZy HandShaKe 🤝
+        </button>
+      </div>
+      <div id="socials" class="flex justify-around mt-10">
+        <a href="https://linkedin.com/in/devguerreiro" target="_blank">
+          <div id="linkedin" class="inline-block p-2 rounded-md bg-gray-200">
+            <LinkedInIcon />
+          </div>
+        </a>
+        <a href="https://github.com/devguerreiro" target="_blank">
+          <div id="github" class="inline-block p-2 rounded-md bg-gray-200">
+            <GitHubIcon />
+          </div>
+        </a>
+        <a href="https://twitch.tv/devguerreiro" target="_blank">
+          <div id="twitch" class="inline-block p-2 rounded-md bg-gray-200">
+            <TwitchIcon />
+          </div>
+        </a>
+        <a href="https://paodiario.org/devocional/" target="_blank">
+          <div id="onlyfans" class="inline-block p-2 rounded-md bg-gray-200">
+            <OnlyFansIcon />
+          </div>
+        </a>
+      </div>
+      <div class="border-4 border-black rounded-sm mt-10 py-2">
+        <Image
+          class="mx-auto"
+          src={Selfie}
+          alt="Uma selfie mostrando meu rosto"
+          height={300}
+          width={300}
+        />
+      </div>
+    </div>
+  </main>
+</Layout>
