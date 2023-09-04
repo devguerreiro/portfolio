@@ -32,8 +32,10 @@ import Navbar from "./Navbar.astro";
     id="theme-mode"
     class="hidden rounded-md bg-light_contrast dark:bg-dark_contrast md:flex md:gap-6 md:px-4 md:py-2"
   >
-    <SunIcon class="text-primary dark:text-dark_text" />
-    <MoonIcon class="text-light_text dark:text-primary" />
+    <SunIcon class="cursor-pointer sun-icon text-primary dark:text-dark_text" />
+    <MoonIcon
+      class="cursor-pointer moon-icon text-light_text dark:text-primary"
+    />
   </div>
   <div id="menu-icon" class="absolute top-6 right-8 md:relative md:hidden">
     <MenuIcon
@@ -46,9 +48,33 @@ import Navbar from "./Navbar.astro";
 
 <script>
   const menuIcon = document.querySelector("#menu-icon");
-  menuIcon?.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const navbar = document.querySelector("#navbar");
-    if (navbar) navbar?.classList.toggle("hidden");
-  });
+  if (menuIcon) {
+    menuIcon.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const navbar = document.querySelector("#navbar");
+      if (navbar) navbar?.classList.toggle("hidden");
+    });
+  }
+
+  const sunIcon = document.querySelector("#theme-mode .sun-icon");
+  if (sunIcon) {
+    sunIcon.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const doc = document.documentElement;
+      if (doc.classList.contains("dark")) {
+        doc.classList.remove("dark");
+      }
+    });
+  }
+
+  const moonIcon = document.querySelector("#theme-mode .moon-icon");
+  if (moonIcon) {
+    moonIcon.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const doc = document.documentElement;
+      if (!doc.classList.contains("dark")) {
+        doc.classList.add("dark");
+      }
+    });
+  }
 </script>
