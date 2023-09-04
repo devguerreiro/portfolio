@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
+  darkMode: "class",
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
@@ -12,6 +12,12 @@ module.exports = {
         light: "#F5F5F5",
         light_text: "#2F2F2F",
         light_contrast: "#FFF",
+      },
+      fontFamily: {
+        kelly_slab: "Kelly Slab",
+        baskerville: "Libre Baskerville",
+        poppins: "Poppins",
+        roboto: "Roboto",
       },
     },
   },
