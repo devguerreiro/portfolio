@@ -20,45 +20,52 @@ import XIcon from "../components/icons/XIcon.astro";
 
 <Layout title="devguerreiro's portfolio" description="Greetings for you">
   <main
-    class="relative flex flex-col md:flex-row items-center md:items-stretch md:justify-between mt-20 md:mt-64"
+    class="relative flex flex-col md:flex-row items-center md:justify-between mt-20 md:mt-64"
   >
     <div id="content" class="md:w-1/2 lg:w-2/5">
-      <div id="greeting">
+      <div id="greeting" class="text-light_text dark:text-dark_text">
         <h1 class="text-4xl">Whatsup, 🤙</h1>
         <h2 class="text-2xl mt-4">
-          I'm <b>devguerreiro</b> and I work as a Software Engineer
+          I'm <b class="text-primary">devguerreiro</b> and I work as a Software
+          Engineer
         </h2>
         <button
-          class="bg-black text-white rounded-sm w-full py-2 mt-8"
+          class="text-light_text bg-primary rounded-sm shadow-md shadow-gray-400 dark:shadow-lg dark:shadow-dark_contrast w-full py-2 mt-8"
           type="button"
         >
           GimMe a CraZy HandShaKe 🤝
         </button>
       </div>
-      <div id="socials" class="flex justify-around mt-10">
+      <div id="socials" class="flex justify-around mt-10 text-light_text dark:text-dark_text">
         <a href="https://linkedin.com/in/devguerreiro" target="_blank">
-          <div id="linkedin" class="inline-block p-2 rounded-md bg-gray-200">
+          <div
+            id="linkedin"
+            class="inline-block p-2 rounded-md bg-light_contrast dark:bg-dark_contrast"
+          >
             <LinkedInIcon />
           </div>
         </a>
         <a href="https://github.com/devguerreiro" target="_blank">
-          <div id="github" class="inline-block p-2 rounded-md bg-gray-200">
+          <div id="github" class="inline-block p-2 rounded-md bg-light_contrast dark:bg-dark_contrast">
             <GitHubIcon />
           </div>
         </a>
         <a href="https://twitch.tv/devguerreiro" target="_blank">
-          <div id="twitch" class="inline-block p-2 rounded-md bg-gray-200">
+          <div id="twitch" class="inline-block p-2 rounded-md bg-light_contrast dark:bg-dark_contrast">
             <TwitchIcon />
           </div>
         </a>
         <a href="https://paodiario.org/devocional/" target="_blank">
-          <div id="onlyfans" class="inline-block p-2 rounded-md bg-gray-200">
+          <div
+            id="onlyfans"
+            class="inline-block p-2 rounded-md bg-light_contrast dark:bg-dark_contrast"
+          >
             <OnlyFansIcon />
           </div>
         </a>
       </div>
     </div>
-    <div id="bg" class="opacity-20 -z-10">
+    <div id="bg" class="text-light_contrast dark:text-dark_contrast dark:opacity-50 -z-10">
       <TriangleIcon class="absolute -top-10 left-0" size={35} />
       <CircleIcon
         class="absolute top-0 right-0 md:-top-20 md:right-48 lg:right-96"
@@ -68,7 +75,10 @@ import XIcon from "../components/icons/XIcon.astro";
         class="absolute -top-16 right-32 md:top-0 md:right-0 md:left-72"
         size={30}
       />
-      <XIcon class="absolute -bottom-4 -left-6 md:left-96 lg:left-2/3" size={75} />
+      <XIcon
+        class="absolute -bottom-4 -left-6 md:left-96 lg:left-2/3"
+        size={75}
+      />
       <SquareIcon class="absolute bottom-64 right-0" size={50} />
       <RectangleIcon
         class="absolute -bottom-8 right-0"
@@ -78,7 +88,7 @@ import XIcon from "../components/icons/XIcon.astro";
     </div>
     <div id="selfie" class="mt-10 md:mt-0">
       <Image
-        class="p-2 border-4 border-black rounded-sm"
+        class="p-2 border-4 border-primary rounded-md"
         src={Selfie}
         alt="A selfie photo of me"
         height={300}
