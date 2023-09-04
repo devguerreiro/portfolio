@@ -18,6 +18,7 @@ module.exports = {
         baskerville: "Libre Baskerville",
         poppins: "Poppins",
         roboto: "Roboto",
+        sans: "Roboto",
       },
     },
   },
