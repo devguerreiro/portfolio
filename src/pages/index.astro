@@ -19,8 +19,10 @@ import XIcon from "../components/icons/XIcon.astro";
 ---
 
 <Layout title="devguerreiro's portfolio" description="Greetings for you">
-  <main class="relative flex items-center">
-    <div id="content" class="mt-20">
+  <main
+    class="relative flex flex-col md:flex-row items-center md:items-stretch md:justify-between mt-20 md:mt-64"
+  >
+    <div id="content" class="md:w-1/2 lg:w-2/5">
       <div id="greeting">
         <h1 class="text-4xl">Whatsup, 🤙</h1>
         <h2 class="text-2xl mt-4">
@@ -55,26 +57,32 @@ import XIcon from "../components/icons/XIcon.astro";
           </div>
         </a>
       </div>
-      <div class="border-4 border-black rounded-sm mt-10 py-2">
-        <Image
-          class="mx-auto"
-          src={Selfie}
-          alt="A selfie photo of me"
-          height={300}
-          width={300}
-        />
-      </div>
     </div>
     <div id="bg" class="opacity-20 -z-10">
-      <TriangleIcon class="absolute top-10 left-0" size={35} />
-      <CircleIcon class="absolute top-10 right-0" size={40} />
-      <StarIcon class="absolute top-0 right-32" size={30} />
-      <XIcon class="absolute -bottom-4 -left-6" size={75} />
-      <SquareIcon class="absolute bottom-72 right-0" size={50} />
+      <TriangleIcon class="absolute -top-10 left-0" size={35} />
+      <CircleIcon
+        class="absolute top-0 right-0 md:-top-20 md:right-48 lg:right-96"
+        size={40}
+      />
+      <StarIcon
+        class="absolute -top-16 right-32 md:top-0 md:right-0 md:left-72"
+        size={30}
+      />
+      <XIcon class="absolute -bottom-4 -left-6 md:left-96 lg:left-2/3" size={75} />
+      <SquareIcon class="absolute bottom-64 right-0" size={50} />
       <RectangleIcon
         class="absolute -bottom-8 right-0"
         width={120}
         height={20}
+      />
+    </div>
+    <div id="selfie" class="mt-10 md:mt-0">
+      <Image
+        class="p-2 border-4 border-black rounded-sm"
+        src={Selfie}
+        alt="A selfie photo of me"
+        height={300}
+        width={300}
       />
     </div>
   </main>
