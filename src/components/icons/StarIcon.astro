@@ -1,0 +1,23 @@
+---
+interface Props {
+  class?: string;
+  size: number;
+}
+
+const { class: className, size } = Astro.props;
+---
+
+<i class:list={["icon", className]}>
+  <svg
+    width={size}
+    height={size}
+    aria-label="A star icon"
+    viewBox="0 0 50 50"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M24 0L29.6129 17.2746H47.7764L33.0818 27.9508L38.6946 45.2254L24 34.5491L9.30537 45.2254L14.9182 27.9508L0.223587 17.2746H18.3871L24 0Z"
+      fill="currentColor"></path>
+  </svg>
+</i>

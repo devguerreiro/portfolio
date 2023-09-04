@@ -1,0 +1,21 @@
+---
+interface Props {
+  class?: string;
+  size: number;
+}
+
+const { class: className, size } = Astro.props;
+---
+
+<i class:list={["icon", className]}>
+  <svg
+    width={size}
+    height={size}
+    aria-label="A circle icon"
+    viewBox=`0 0 ${size} ${size}`
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx={size / 2} cy={size / 2} r={size / 2} fill="currentColor"></circle>
+  </svg>
+</i>

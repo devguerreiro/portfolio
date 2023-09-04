@@ -1,0 +1,33 @@
+---
+interface Props {
+  class?: string;
+  size: number;
+}
+
+const { class: className, size } = Astro.props;
+---
+
+<i class:list={["icon", className]}>
+  <svg
+    width={size}
+    height={size}
+    aria-label="An x icon"
+    viewBox="0 0 90 90"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      y="17.6777"
+      width="25"
+      height="100"
+      transform="rotate(-45 0 17.6777)"
+      fill="currentColor"></rect>
+    <rect
+      x="17.6777"
+      y="88.3884"
+      width="25"
+      height="100"
+      transform="rotate(-135 17.6777 88.3884)"
+      fill="currentColor"></rect>
+  </svg>
+</i>

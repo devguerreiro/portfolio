@@ -9,10 +9,17 @@ import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
 import GitHubIcon from "../components/icons/GitHubIcon.astro";
 import TwitchIcon from "../components/icons/TwitchIcon.astro";
 import OnlyFansIcon from "../components/icons/OnlyFansIcon.astro";
+
+import CircleIcon from "../components/icons/CircleIcon.astro";
+import RectangleIcon from "../components/icons/RectangleIcon.astro";
+import SquareIcon from "../components/icons/SquareIcon.astro";
+import StarIcon from "../components/icons/StarIcon.astro";
+import TriangleIcon from "../components/icons/TriangleIcon.astro";
+import XIcon from "../components/icons/XIcon.astro";
 ---
 
 <Layout title="devguerreiro's portfolio" description="Greetings for you">
-  <main class="flex items-center">
+  <main class="relative flex items-center">
     <div id="content" class="mt-20">
       <div id="greeting">
         <h1 class="text-4xl">Whatsup, 🤙</h1>
@@ -52,11 +59,23 @@ import OnlyFansIcon from "../components/icons/OnlyFansIcon.astro";
         <Image
           class="mx-auto"
           src={Selfie}
-          alt="Uma selfie mostrando meu rosto"
+          alt="A selfie photo of me"
           height={300}
           width={300}
         />
       </div>
+    </div>
+    <div id="bg" class="opacity-20 -z-10">
+      <TriangleIcon class="absolute top-10 left-0" size={35} />
+      <CircleIcon class="absolute top-10 right-0" size={40} />
+      <StarIcon class="absolute top-0 right-32" size={30} />
+      <XIcon class="absolute -bottom-4 -left-6" size={75} />
+      <SquareIcon class="absolute bottom-72 right-0" size={50} />
+      <RectangleIcon
+        class="absolute -bottom-8 right-0"
+        width={120}
+        height={20}
+      />
     </div>
   </main>
 </Layout>
