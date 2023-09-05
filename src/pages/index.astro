@@ -20,61 +20,24 @@ import XIcon from "../components/icons/XIcon.astro";
 
 <Layout title="Devguerreiro's Portfolio" description="Greetings for you">
   <main
-    class="flex flex-col md:flex-row items-center md:justify-between xl:justify-around mt-20 md:mt-48"
+    class="mt-20 md:mt-40 flex flex-col items-center lg:flex-row lg:justify-around xl:gap-16"
   >
-    <div id="content" class="relative md:w-1/2 lg:w-2/5 xl:w-1/3">
+    <div id="content" class="relative md:w-1/2 lg:w-2/5 xl:w-1/3 2xl:w-1/4">
       <div id="greeting" class="text-light_text dark:text-dark_text">
-        <h1 class="font-kelly_slab font-bold text-4xl tracking-tight">
+        <h1 class="font-kelly_slab font-bold text-2xl md:text-3xl">
           Whatsup, 🤙
         </h1>
-        <h2 class="font-baskerville text-2xl mt-6">
-          I'm <b class="font-roboto text-primary tracking-wide italic"
-            >devguerreiro</b
-          > and I work as a <b>Software Engineer</b>
+        <h2 class="font-baskerville text-lg md:text-xl tracking-wider mt-4">
+          I'm <b class="font-roboto text-primary italic">devguerreiro</b> and I
+          work as a <b>Software Engineer</b>
         </h2>
         <button
-          class="font-kelly_slab tracking-widest text-light_text bg-primary rounded-sm shadow-md shadow-gray-400 dark:shadow-lg dark:shadow-dark_contrast w-full py-2 mt-8"
+          id="crazy_handshake-button"
+          class="w-full py-2 mt-6 font-kelly_slab tracking-wider text-light_text bg-primary rounded-sm tiny-shadow"
           type="button"
         >
           GimMe a CraZy HandShaKe 🤝
         </button>
-      </div>
-      <div
-        id="socials"
-        class="flex justify-around mt-10 text-light_text dark:text-dark_text"
-      >
-        <a href="https://linkedin.com/in/devguerreiro" target="_blank">
-          <div
-            id="linkedin"
-            class="inline-block p-2 rounded-md bg-light_contrast dark:bg-dark_contrast"
-          >
-            <LinkedInIcon />
-          </div>
-        </a>
-        <a href="https://github.com/devguerreiro" target="_blank">
-          <div
-            id="github"
-            class="inline-block p-2 rounded-md bg-light_contrast dark:bg-dark_contrast"
-          >
-            <GitHubIcon />
-          </div>
-        </a>
-        <a href="https://twitch.tv/devguerreiro" target="_blank">
-          <div
-            id="twitch"
-            class="inline-block p-2 rounded-md bg-light_contrast dark:bg-dark_contrast"
-          >
-            <TwitchIcon />
-          </div>
-        </a>
-        <a href="https://paodiario.org/devocional/" target="_blank">
-          <div
-            id="onlyfans"
-            class="inline-block p-2 rounded-md bg-light_contrast dark:bg-dark_contrast"
-          >
-            <OnlyFansIcon />
-          </div>
-        </a>
       </div>
       <div class="bg-details">
         <TriangleIcon class="absolute -top-12 left-0 -z-10" size={35} />
@@ -82,14 +45,41 @@ import XIcon from "../components/icons/XIcon.astro";
         <CircleIcon class="absolute top-0 right-0 -z-10" size={40} />
       </div>
     </div>
-    <div id="selfie" class="relative mt-10 md:mt-0">
+    <div
+      id="selfie"
+      class="w-64 relative mt-16 lg:mt-0 lg:w-72 xl:w-80 2xl:w-auto p-2 border-4 border-primary rounded-md flex justify-center"
+    >
       <Image
-        class="p-2 border-4 border-primary rounded-md"
         src={Selfie}
         alt="A selfie photo of me"
-        height={300}
-        width={300}
+        height={400}
+        width={400}
       />
+      <div
+        id="socials"
+        class="w-full absolute -bottom-28 flex justify-around text-light_text dark:text-dark_text"
+      >
+        <a
+          id="linkedin"
+          href="https://linkedin.com/in/devguerreiro"
+          target="_blank"
+        >
+          <LinkedInIcon class="social-icon" />
+        </a>
+        <a id="github" href="https://github.com/devguerreiro" target="_blank">
+          <GitHubIcon class="social-icon" />
+        </a>
+        <a id="twitch" href="https://twitch.tv/devguerreiro" target="_blank">
+          <TwitchIcon class="social-icon" />
+        </a>
+        <a
+          id="onlyfans"
+          href="https://paodiario.org/devocional/"
+          target="_blank"
+        >
+          <OnlyFansIcon class="social-icon" />
+        </a>
+      </div>
       <div class="bg-details">
         <SquareIcon class="absolute -top-6 right-0 -z-10" size={50} />
         <XIcon class="absolute -bottom-8 -left-8 -z-10" size={75} />
