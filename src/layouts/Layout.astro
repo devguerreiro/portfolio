@@ -27,3 +27,23 @@ const { title, description } = Astro.props;
     <slot />
   </body>
 </html>
+
+<script>
+  const doc = document.documentElement;
+  const docClases = doc.classList;
+  const query = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const setDarkMode = () => {
+    if (!docClases.contains("dark")) docClases.add("dark");
+  };
+  const unsetDarkMode = () => {
+    if (docClases.contains("dark")) docClases.remove("dark");
+  };
+
+  if (query.matches) setDarkMode();
+
+  query.onchange = (ev) => {
+    if (ev.matches) setDarkMode();
+    else unsetDarkMode();
+  };
+</script>
