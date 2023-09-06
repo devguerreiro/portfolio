@@ -43,7 +43,7 @@ import XIcon from "../components/icons/XIcon.astro";
           </h2>
           <button
             id="crazy_handshake-button"
-            class="w-full py-2 mt-6 font-kelly_slab tracking-wider text-light_text bg-primary rounded-sm tiny-shadow"
+            class="w-full py-2 mt-6 font-kelly_slab tracking-wider text-light_text bg-primary rounded-sm tiny-shadow disabled:bg-dark_contrast disabled:text-dark_text"
             type="button"
           >
             GimMe a CraZy HandShaKe 🤝
@@ -115,39 +115,46 @@ import XIcon from "../components/icons/XIcon.astro";
     media_filter: "minimal",
   };
 
-  const getGif = () => {
-    fetch(baseUrl + new URLSearchParams(params), { method: "GET" }).then(
-      async (response) => {
-        const r = await response.json();
+  const getGif = async () => {
+    const selfie = document.querySelector("#selfie") as HTMLElement;
+    const selfieImg = selfie?.querySelector("#selfie > img") as HTMLElement;
 
-        const gif = r.results[0].media_formats.gif;
-        const gifWidth = gif.dims[0] + "px";
-        const gifHeight = gif.dims[1] + "px";
+    selfieImg.classList.add("hidden");
 
-        const selfie = document.querySelector("#selfie") as HTMLElement;
-        const selfieImg = selfie?.querySelector("#selfie > img") as HTMLElement;
+    const message = document.createElement("p");
+    message.innerText = "Searching the best GIF for you...";
+    message.classList.add("px-2", "py-1", "text-primary");
 
-        selfieImg.classList.add("hidden");
-        selfieImg.setAttribute("src", gif.url);
-        selfieImg.setAttribute("width", gifWidth);
-        selfieImg.setAttribute("height", gifHeight);
+    selfie.appendChild(message);
 
-        const message = document.createElement("p");
-        message.innerText = "Searching the best GIF for you...";
-        message.classList.add("px-2", "py-1", "text-primary");
+    const response = await fetch(baseUrl + new URLSearchParams(params), {
+      method: "GET",
+    });
+    const data = await response.json();
 
-        selfie.appendChild(message);
+    const gif = data.results[0].media_formats.gif;
+    const gifWidth = gif.dims[0] + "px";
+    const gifHeight = gif.dims[1] + "px";
 
-        setTimeout(() => {
-          selfie.removeChild(message);
-          selfieImg.classList.remove("hidden");
-        }, 2000);
-      }
-    );
+    selfieImg.setAttribute("src", gif.url);
+    selfieImg.setAttribute("width", gifWidth);
+    selfieImg.setAttribute("height", gifHeight);
+
+    return new Promise<void>((resolve) => {
+      setTimeout(() => {
+        selfie.removeChild(message);
+        selfieImg.classList.remove("hidden");
+        resolve();
+      }, 2000);
+    });
   };
 
   const crazyHandshakeButton = document.querySelector(
     "#crazy_handshake-button"
   );
-  crazyHandshakeButton?.addEventListener("click", getGif);
+  crazyHandshakeButton?.addEventListener("click", async () => {
+    crazyHandshakeButton.setAttribute("disabled", "disabled");
+    await getGif();
+    crazyHandshakeButton.removeAttribute("disabled");
+  });
 </script>
