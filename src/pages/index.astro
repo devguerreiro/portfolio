@@ -41,7 +41,11 @@ import XIcon from "../components/icons/XIcon.astro";
               >Software Engineer</b
             >
           </h2>
-          <button id="crazy-handshake-button" class="btn-primary w-full">
+          <button
+            id="crazy-handshake-button"
+            class="btn-primary w-full"
+            disabled
+          >
             GimMe a CraZy HandShaKe 🤝
           </button>
         </div>
@@ -185,6 +189,7 @@ import XIcon from "../components/icons/XIcon.astro";
               removeMessage(); // searching message
               showImage(); // GIF image
               showThanks();
+              localStorage.setItem("hasAlreadyCrazyHandshaked", "true");
               resolve();
             }, 1000);
           });
@@ -219,15 +224,25 @@ import XIcon from "../components/icons/XIcon.astro";
       const crazyHandshakeButton = document.querySelector(
         "#crazy-handshake-button"
       );
-      crazyHandshakeButton?.addEventListener(
-        "click",
-        async (e) => {
-          e.stopPropagation();
-          (e.target as Element).setAttribute("disabled", "disabled");
-          await showGIF();
-        },
-        { once: true }
+      if (crazyHandshakeButton !== null) {
+        crazyHandshakeButton.removeAttribute("disabled");
+        crazyHandshakeButton.addEventListener(
+          "click",
+          async (e) => {
+            e.stopPropagation();
+            (e.target as Element).setAttribute("disabled", "disabled");
+            await showGIF();
+          },
+          { once: true }
+        );
+      }
+    } else {
+      const crazyHandshakeButton = document.querySelector(
+        "#crazy-handshake-button"
       );
+      if (crazyHandshakeButton !== null) {
+        crazyHandshakeButton.innerHTML = "Yoh! Thanks for your 🤝";
+      }
     }
   }
 </script>
