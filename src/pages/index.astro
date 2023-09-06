@@ -41,7 +41,7 @@ import XIcon from "../components/icons/XIcon.astro";
               >Software Engineer</b
             >
           </h2>
-          <button id="crazy_handshake-button" class="btn-primary w-full">
+          <button id="crazy-handshake-button" class="btn-primary w-full">
             GimMe a CraZy HandShaKe 🤝
           </button>
         </div>
@@ -96,86 +96,138 @@ import XIcon from "../components/icons/XIcon.astro";
 </Layout>
 
 <script>
-  const baseUrl = "https://tenor.googleapis.com/v2/search?";
-  const params = {
-    q: "crazy handshake",
-    key: import.meta.env.PUBLIC_TENOR_API_KEY,
-    client_key: import.meta.env.PUBLIC_TENOR_API_CLIENT_ID,
-    limit: "1",
-    random: "true",
-    media_filter: "minimal",
-  };
+  setupCrazyHandshake();
 
-  const getGif = async () => {
-    const selfie = document.querySelector("#selfie") as HTMLElement;
-    const selfieImg = selfie?.querySelector("#selfie > img") as HTMLElement;
+  function setupCrazyHandshake() {
+    const hasAlreadyCrazyHandshaked = localStorage.getItem(
+      "hasAlreadyCrazyHandshaked"
+    );
+    if (hasAlreadyCrazyHandshaked === null) {
+      const hiddeImage = () => {
+        const selfieImg = document.querySelector(
+          "#selfie > img"
+        ) as HTMLElement;
+        selfieImg.classList.add("hidden");
+      };
 
-    selfieImg.classList.add("hidden");
+      const showImage = () => {
+        const selfieImg = document.querySelector(
+          "#selfie > img"
+        ) as HTMLElement;
+        selfieImg.classList.remove("hidden");
+      };
 
-    const message = document.createElement("p");
-    message.innerText = "Searching the best GIF for you...";
-    message.classList.add("px-2", "py-1", "text-primary");
+      const showMessage = (text: string) => {
+        const selfie = document.querySelector("#selfie") as HTMLElement;
+        let message = selfie.querySelector("#message") as HTMLParagraphElement;
+        if (message === null) {
+          let message = document.createElement("p");
+          message.setAttribute("id", "message");
+          message.innerText = text;
+          message.classList.add("text-primary");
+          selfie.appendChild(message);
+        } else {
+          message.innerText = text;
+        }
+      };
 
-    selfie.appendChild(message);
+      const removeMessage = () => {
+        const selfie = document.querySelector("#selfie") as HTMLElement;
+        const message = selfie.querySelector("#message");
+        if (message !== null) {
+          selfie.removeChild(message);
+        }
+      };
 
-    const response = await fetch(baseUrl + new URLSearchParams(params), {
-      method: "GET",
-    });
-    if (response.status == 200) {
-      const thanks = document.createElement("h2");
-      thanks.classList.add(
-        "absolute",
-        "-top-10",
-        "text-primary",
-        "font-kelly_slab",
-        "font-bold",
-        "uppercase"
+      const showSearchingMessage = () =>
+        showMessage("Searching the best GIF for you...");
+
+      const showErrorMessage = () => showMessage("Some error occurred ");
+
+      const swapImageForGIF = (gif: { dims: number[]; url: string }) => {
+        const selfieImg = document.querySelector(
+          "#selfie > img"
+        ) as HTMLElement;
+
+        const gifWidth = gif.dims[0] + "px";
+        const gifHeight = gif.dims[1] + "px";
+
+        selfieImg.setAttribute("src", gif.url);
+        selfieImg.setAttribute("width", gifWidth);
+        selfieImg.setAttribute("height", gifHeight);
+      };
+
+      const showGIF = async () => {
+        const baseUrl = "https://tenor.googleapis.com/v2/search?";
+        const params = {
+          q: "crazy handshake",
+          key: import.meta.env.PUBLIC_TENOR_API_KEY,
+          client_key: import.meta.env.PUBLIC_TENOR_API_CLIENT_ID,
+          limit: "1",
+          random: "true",
+          media_filter: "minimal",
+        };
+
+        hiddeImage();
+        showSearchingMessage();
+
+        const response = await fetch(baseUrl + new URLSearchParams(params), {
+          method: "GET",
+        });
+        if (response.status == 200) {
+          const data = await response.json();
+          const gif = data.results[0].media_formats.gif;
+
+          swapImageForGIF(gif);
+
+          return new Promise<void>((resolve) => {
+            setTimeout(() => {
+              removeMessage(); // searching message
+              showImage(); // GIF image
+              showThanks();
+              resolve();
+            }, 1000);
+          });
+        }
+        return new Promise<void>((resolve) => {
+          setTimeout(() => {
+            showErrorMessage();
+            setTimeout(() => {
+              removeMessage(); // error message
+              showImage(); // self image
+              resolve();
+            }, 1000);
+          }, 1000);
+        });
+      };
+
+      const showThanks = () => {
+        const selfie = document.querySelector("#selfie") as HTMLElement;
+        const thanks = document.createElement("h2");
+        thanks.classList.add(
+          "absolute",
+          "-top-10",
+          "text-primary",
+          "font-kelly_slab",
+          "font-bold",
+          "uppercase"
+        );
+        thanks.innerText = "Yoh! Thanks! 🫂";
+        selfie.appendChild(thanks);
+      };
+
+      const crazyHandshakeButton = document.querySelector(
+        "#crazy-handshake-button"
       );
-      thanks.innerText = "Yoh! Thanks! 🫂";
-
-      const data = await response.json();
-
-      const gif = data.results[0].media_formats.gif;
-      const gifWidth = gif.dims[0] + "px";
-      const gifHeight = gif.dims[1] + "px";
-
-      selfieImg.setAttribute("src", gif.url);
-      selfieImg.setAttribute("width", gifWidth);
-      selfieImg.setAttribute("height", gifHeight);
-
-      return new Promise<void>((resolve) => {
-        setTimeout(() => {
-          selfie.removeChild(message);
-          selfie.appendChild(thanks);
-          selfieImg.classList.remove("hidden");
-          resolve();
-        }, 1000);
-      });
+      crazyHandshakeButton?.addEventListener(
+        "click",
+        async (e) => {
+          e.stopPropagation();
+          (e.target as Element).setAttribute("disabled", "disabled");
+          await showGIF();
+        },
+        { once: true }
+      );
     }
-    return new Promise<void>((resolve) => {
-      setTimeout(() => {
-        selfie.removeChild(message);
-        message.innerText = "Some error occurred";
-        selfie.appendChild(message);
-
-        setTimeout(() => {
-          selfie.removeChild(message);
-          selfieImg.classList.remove("hidden");
-          resolve();
-        }, 2000);
-      }, 1000);
-    });
-  };
-
-  const crazyHandshakeButton = document.querySelector(
-    "#crazy_handshake-button"
-  );
-  crazyHandshakeButton?.addEventListener(
-    "click",
-    async () => {
-      crazyHandshakeButton.setAttribute("disabled", "disabled");
-      await getGif();
-    },
-    { once: true }
-  );
+  }
 </script>
