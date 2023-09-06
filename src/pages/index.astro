@@ -41,11 +41,7 @@ import XIcon from "../components/icons/XIcon.astro";
               >Software Engineer</b
             >
           </h2>
-          <button
-            id="crazy_handshake-button"
-            class="w-full py-2 mt-6 font-kelly_slab tracking-wider text-light_text bg-primary rounded-sm tiny-shadow disabled:bg-dark_contrast disabled:text-dark_text"
-            type="button"
-          >
+          <button id="crazy_handshake-button" class="btn-primary w-full">
             GimMe a CraZy HandShaKe 🤝
           </button>
         </div>
@@ -57,14 +53,9 @@ import XIcon from "../components/icons/XIcon.astro";
       </div>
       <div
         id="selfie"
-        class="w-60 lg:w-64 xl:w-72 relative mt-16 lg:mt-0 p-2 border-2 border-primary rounded-md flex justify-center"
+        class="w-60 lg:w-64 xl:w-72 h-60 lg:h-64 xl:h-72 relative mt-16 lg:mt-0 p-2 border-2 border-primary rounded-md flex justify-center"
       >
-        <Image
-          src={Selfie}
-          alt="A selfie photo of me"
-          height={300}
-          width={400}
-        />
+        <Image class="object-cover" src={Selfie} alt="A selfie photo of me" />
         <div
           id="socials"
           class="w-full absolute -bottom-28 flex justify-between text-light_text dark:text-dark_text"
@@ -108,8 +99,8 @@ import XIcon from "../components/icons/XIcon.astro";
   const baseUrl = "https://tenor.googleapis.com/v2/search?";
   const params = {
     q: "crazy handshake",
-    key: "AIzaSyABkMkywTCIIN0n3_IdXlQow7-IAHqERe4",
-    client_key: "crazy_handshake",
+    key: import.meta.env.PUBLIC_TENOR_API_KEY,
+    client_key: import.meta.env.PUBLIC_TENOR_API_CLIENT_ID,
     limit: "1",
     random: "true",
     media_filter: "minimal",
@@ -130,31 +121,61 @@ import XIcon from "../components/icons/XIcon.astro";
     const response = await fetch(baseUrl + new URLSearchParams(params), {
       method: "GET",
     });
-    const data = await response.json();
+    if (response.status == 200) {
+      const thanks = document.createElement("h2");
+      thanks.classList.add(
+        "absolute",
+        "-top-10",
+        "text-primary",
+        "font-kelly_slab",
+        "font-bold",
+        "uppercase"
+      );
+      thanks.innerText = "Yoh! Thanks! 🫂";
 
-    const gif = data.results[0].media_formats.gif;
-    const gifWidth = gif.dims[0] + "px";
-    const gifHeight = gif.dims[1] + "px";
+      const data = await response.json();
 
-    selfieImg.setAttribute("src", gif.url);
-    selfieImg.setAttribute("width", gifWidth);
-    selfieImg.setAttribute("height", gifHeight);
+      const gif = data.results[0].media_formats.gif;
+      const gifWidth = gif.dims[0] + "px";
+      const gifHeight = gif.dims[1] + "px";
 
+      selfieImg.setAttribute("src", gif.url);
+      selfieImg.setAttribute("width", gifWidth);
+      selfieImg.setAttribute("height", gifHeight);
+
+      return new Promise<void>((resolve) => {
+        setTimeout(() => {
+          selfie.removeChild(message);
+          selfie.appendChild(thanks);
+          selfieImg.classList.remove("hidden");
+          resolve();
+        }, 1000);
+      });
+    }
     return new Promise<void>((resolve) => {
       setTimeout(() => {
         selfie.removeChild(message);
-        selfieImg.classList.remove("hidden");
-        resolve();
-      }, 2000);
+        message.innerText = "Some error occurred";
+        selfie.appendChild(message);
+
+        setTimeout(() => {
+          selfie.removeChild(message);
+          selfieImg.classList.remove("hidden");
+          resolve();
+        }, 2000);
+      }, 1000);
     });
   };
 
   const crazyHandshakeButton = document.querySelector(
     "#crazy_handshake-button"
   );
-  crazyHandshakeButton?.addEventListener("click", async () => {
-    crazyHandshakeButton.setAttribute("disabled", "disabled");
-    await getGif();
-    crazyHandshakeButton.removeAttribute("disabled");
-  });
+  crazyHandshakeButton?.addEventListener(
+    "click",
+    async () => {
+      crazyHandshakeButton.setAttribute("disabled", "disabled");
+      await getGif();
+    },
+    { once: true }
+  );
 </script>
