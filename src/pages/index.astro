@@ -18,77 +18,136 @@ import TriangleIcon from "../components/icons/TriangleIcon.astro";
 import XIcon from "../components/icons/XIcon.astro";
 ---
 
-<Layout title="Devguerreiro's Portfolio" description="Greetings for you">
-  <main
-    class="mt-20 md:mt-40 flex flex-col items-center lg:flex-row lg:justify-around xl:gap-16"
-  >
-    <div id="content" class="relative md:w-1/2 lg:w-2/5 xl:w-1/3 2xl:w-1/4">
-      <div id="greeting" class="text-light_text dark:text-dark_text">
-        <h1 class="font-kelly_slab font-bold text-2xl md:text-3xl">
-          Whatsup, 🤙
-        </h1>
-        <h2 class="font-baskerville text-lg md:text-xl tracking-wider mt-4">
-          I'm <b class="font-roboto text-primary italic">devguerreiro</b> and I
-          work as a <b>Software Engineer</b>
-        </h2>
-        <button
-          id="crazy_handshake-button"
-          class="w-full py-2 mt-6 font-kelly_slab tracking-wider text-light_text bg-primary rounded-sm tiny-shadow"
-          type="button"
-        >
-          GimMe a CraZy HandShaKe 🤝
-        </button>
-      </div>
-      <div class="bg-details">
-        <TriangleIcon class="absolute -top-12 left-0 -z-10" size={35} />
-        <StarIcon class="absolute -top-16 right-32 -z-10" size={30} />
-        <CircleIcon class="absolute top-0 right-0 -z-10" size={40} />
-      </div>
-    </div>
+<Layout
+  title="Devguerreiro's Portfolio"
+  description="Welcome to my personal website"
+>
+  <main class="h-screen lg:h-auto">
     <div
-      id="selfie"
-      class="w-64 relative mt-16 lg:mt-0 lg:w-72 xl:w-80 2xl:w-auto p-2 border-4 border-primary rounded-md flex justify-center"
+      id="content"
+      class="mt-24 lg:mt-0 lg:pt-40 flex flex-col items-center lg:flex-row lg:justify-around xl:gap-16"
     >
-      <Image
-        src={Selfie}
-        alt="A selfie photo of me"
-        height={400}
-        width={400}
-      />
-      <div
-        id="socials"
-        class="w-full absolute -bottom-28 flex justify-around text-light_text dark:text-dark_text"
-      >
-        <a
-          id="linkedin"
-          href="https://linkedin.com/in/devguerreiro"
-          target="_blank"
-        >
-          <LinkedInIcon class="social-icon" />
-        </a>
-        <a id="github" href="https://github.com/devguerreiro" target="_blank">
-          <GitHubIcon class="social-icon" />
-        </a>
-        <a id="twitch" href="https://twitch.tv/devguerreiro" target="_blank">
-          <TwitchIcon class="social-icon" />
-        </a>
-        <a
-          id="onlyfans"
-          href="https://paodiario.org/devocional/"
-          target="_blank"
-        >
-          <OnlyFansIcon class="social-icon" />
-        </a>
+      <div id="greeting" class="relative md:w-1/2 lg:w-2/5 xl:w-1/3 2xl:w-1/4">
+        <div id="introduction" class="text-light_text dark:text-dark_text">
+          <h1 class="font-kelly_slab text-2xl lg:text-3xl">
+            <b class="text-primary">Whatsup</b>, 🤙
+          </h1>
+          <h2 class="mt-4 font-baskerville text-lg lg:text-xl tracking-wider">
+            I'm <i
+              class="px-2 py-1 tiny-shadow font-roboto text-dark_contrast dark:text-light_contrast bg-light_contrast dark:bg-dark_contrast"
+              >devguerreiro</i
+            > and I work as a <b
+              class="text-dark_contrast dark:text-light_contrast leading-loose"
+              >Software Engineer</b
+            >
+          </h2>
+          <button
+            id="crazy_handshake-button"
+            class="w-full py-2 mt-6 font-kelly_slab tracking-wider text-light_text bg-primary rounded-sm tiny-shadow"
+            type="button"
+          >
+            GimMe a CraZy HandShaKe 🤝
+          </button>
+        </div>
+        <div class="bg-details">
+          <TriangleIcon class="absolute -top-12 left-0 -z-10" size={35} />
+          <StarIcon class="absolute -top-16 right-32 -z-10" size={30} />
+          <CircleIcon class="absolute top-0 right-0 -z-10" size={40} />
+        </div>
       </div>
-      <div class="bg-details">
-        <SquareIcon class="absolute -top-6 right-0 -z-10" size={50} />
-        <XIcon class="absolute -bottom-8 -left-8 -z-10" size={75} />
-        <RectangleIcon
-          class="absolute -bottom-8 right-0 -z-10"
-          width={120}
-          height={20}
+      <div
+        id="selfie"
+        class="w-60 lg:w-64 xl:w-72 relative mt-16 lg:mt-0 p-2 border-2 border-primary rounded-md flex justify-center"
+      >
+        <Image
+          src={Selfie}
+          alt="A selfie photo of me"
+          height={300}
+          width={400}
         />
+        <div
+          id="socials"
+          class="w-full absolute -bottom-28 flex justify-between text-light_text dark:text-dark_text"
+        >
+          <a
+            id="linkedin"
+            href="https://linkedin.com/in/devguerreiro"
+            target="_blank"
+          >
+            <LinkedInIcon class="social-icon" />
+          </a>
+          <a id="github" href="https://github.com/devguerreiro" target="_blank">
+            <GitHubIcon class="social-icon" />
+          </a>
+          <a id="twitch" href="https://twitch.tv/devguerreiro" target="_blank">
+            <TwitchIcon class="social-icon" />
+          </a>
+          <a
+            id="onlyfans"
+            href="https://paodiario.org/devocional/"
+            target="_blank"
+          >
+            <OnlyFansIcon class="social-icon" />
+          </a>
+        </div>
+        <div class="bg-details">
+          <SquareIcon class="absolute -top-6 right-0 -z-10" size={50} />
+          <XIcon class="absolute -bottom-8 -left-8 -z-10" size={75} />
+          <RectangleIcon
+            class="absolute -bottom-8 right-0 -z-10"
+            width={120}
+            height={20}
+          />
+        </div>
       </div>
     </div>
   </main>
 </Layout>
+
+<script>
+  const baseUrl = "https://tenor.googleapis.com/v2/search?";
+  const params = {
+    q: "crazy handshake",
+    key: "AIzaSyABkMkywTCIIN0n3_IdXlQow7-IAHqERe4",
+    client_key: "crazy_handshake",
+    limit: "1",
+    random: "true",
+    media_filter: "minimal",
+  };
+
+  const getGif = () => {
+    fetch(baseUrl + new URLSearchParams(params), { method: "GET" }).then(
+      async (response) => {
+        const r = await response.json();
+
+        const gif = r.results[0].media_formats.gif;
+        const gifWidth = gif.dims[0] + "px";
+        const gifHeight = gif.dims[1] + "px";
+
+        const selfie = document.querySelector("#selfie") as HTMLElement;
+        const selfieImg = selfie?.querySelector("#selfie > img") as HTMLElement;
+
+        selfieImg.classList.add("hidden");
+        selfieImg.setAttribute("src", gif.url);
+        selfieImg.setAttribute("width", gifWidth);
+        selfieImg.setAttribute("height", gifHeight);
+
+        const message = document.createElement("p");
+        message.innerText = "Searching the best GIF for you...";
+        message.classList.add("px-2", "py-1", "text-primary");
+
+        selfie.appendChild(message);
+
+        setTimeout(() => {
+          selfie.removeChild(message);
+          selfieImg.classList.remove("hidden");
+        }, 2000);
+      }
+    );
+  };
+
+  const crazyHandshakeButton = document.querySelector(
+    "#crazy_handshake-button"
+  );
+  crazyHandshakeButton?.addEventListener("click", getGif);
+</script>
