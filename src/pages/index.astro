@@ -57,7 +57,7 @@ import XIcon from "../components/icons/XIcon.astro";
       </div>
       <div
         id="selfie"
-        class="w-60 lg:w-64 xl:w-72 h-60 lg:h-64 xl:h-72 relative mt-16 lg:mt-0 p-2 border-2 border-primary rounded-md flex justify-center"
+        class="w-72 xl:w-80 2xl:w-96 h-60 xl:h-72 relative mt-16 lg:mt-0 p-2 border-2 border-primary rounded-md flex justify-center"
       >
         <Image class="object-cover" src={Selfie} alt="A selfie photo of me" />
         <div
@@ -104,6 +104,17 @@ import XIcon from "../components/icons/XIcon.astro";
   checkNewVisitor();
 
   function setupCrazyHandshake() {
+    const swapImageForGIF = (gif: { dims: number[]; url: string }) => {
+      const selfieImg = document.querySelector("#selfie > img") as HTMLElement;
+
+      const gifWidth = gif.dims[0] + "px";
+      const gifHeight = gif.dims[1] + "px";
+
+      selfieImg.setAttribute("src", gif.url);
+      selfieImg.setAttribute("width", gifWidth);
+      selfieImg.setAttribute("height", gifHeight);
+    };
+
     const hasAlreadyCrazyHandshaked = localStorage.getItem(
       "hasAlreadyCrazyHandshaked"
     );
@@ -149,19 +160,6 @@ import XIcon from "../components/icons/XIcon.astro";
 
       const showErrorMessage = () => showMessage("Some error occurred ");
 
-      const swapImageForGIF = (gif: { dims: number[]; url: string }) => {
-        const selfieImg = document.querySelector(
-          "#selfie > img"
-        ) as HTMLElement;
-
-        const gifWidth = gif.dims[0] + "px";
-        const gifHeight = gif.dims[1] + "px";
-
-        selfieImg.setAttribute("src", gif.url);
-        selfieImg.setAttribute("width", gifWidth);
-        selfieImg.setAttribute("height", gifHeight);
-      };
-
       const showGIF = async () => {
         const baseUrl = "https://tenor.googleapis.com/v2/search?";
         const params = {
@@ -190,6 +188,7 @@ import XIcon from "../components/icons/XIcon.astro";
               removeMessage(); // searching message
               showImage(); // GIF image
               showThanks();
+              localStorage.setItem("handshakeGIF", JSON.stringify(gif));
               resolve();
             }, 1000);
           });
@@ -260,6 +259,10 @@ import XIcon from "../components/icons/XIcon.astro";
       );
       if (crazyHandshakeButton !== null) {
         crazyHandshakeButton.innerHTML = "Yoh! Thanks for your 🤝";
+      }
+      const gif = localStorage.getItem("handshakeGIF");
+      if (gif) {
+        swapImageForGIF(JSON.parse(gif));
       }
     }
   }
