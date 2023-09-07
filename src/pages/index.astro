@@ -101,6 +101,7 @@ import XIcon from "../components/icons/XIcon.astro";
 
 <script>
   setupCrazyHandshake();
+  checkNewVisitor();
 
   function setupCrazyHandshake() {
     const hasAlreadyCrazyHandshaked = localStorage.getItem(
@@ -189,7 +190,6 @@ import XIcon from "../components/icons/XIcon.astro";
               removeMessage(); // searching message
               showImage(); // GIF image
               showThanks();
-              localStorage.setItem("hasAlreadyCrazyHandshaked", "true");
               resolve();
             }, 1000);
           });
@@ -221,6 +221,24 @@ import XIcon from "../components/icons/XIcon.astro";
         selfie.appendChild(thanks);
       };
 
+      const commitHandShake = async () => {
+        const response = await fetch(
+          `https://api.api-ninjas.com/v1/counter?id=handshakes&hit=true`,
+          {
+            method: "GET",
+            headers: {
+              "X-Api-Key": import.meta.env.PUBLIC_API_NINJA_API_KEY,
+            },
+          }
+        );
+        if (response.status === 200) {
+          localStorage.setItem("hasAlreadyCrazyHandshaked", "true");
+          console.log(
+            "Yeah! Nice handshake! Welcome to the group of crazy handshakers :D"
+          );
+        }
+      };
+
       const crazyHandshakeButton = document.querySelector(
         "#crazy-handshake-button"
       );
@@ -231,7 +249,7 @@ import XIcon from "../components/icons/XIcon.astro";
           async (e) => {
             e.stopPropagation();
             (e.target as Element).setAttribute("disabled", "disabled");
-            await showGIF();
+            await Promise.all([await showGIF(), await commitHandShake()]);
           },
           { once: true }
         );
@@ -243,6 +261,24 @@ import XIcon from "../components/icons/XIcon.astro";
       if (crazyHandshakeButton !== null) {
         crazyHandshakeButton.innerHTML = "Yoh! Thanks for your 🤝";
       }
+    }
+  }
+
+  function checkNewVisitor() {
+    if (localStorage.getItem("hasAlreadyVisited") === null) {
+      fetch(`https://api.api-ninjas.com/v1/counter?id=visits&hit=true`, {
+        method: "GET",
+        headers: {
+          "X-Api-Key": import.meta.env.PUBLIC_API_NINJA_API_KEY,
+        },
+      }).then((response) => {
+        if (response.status === 200) {
+          localStorage.setItem("hasAlreadyVisited", "true");
+          console.log("Whatsup! Welcome to my personal website!");
+        } else {
+          console.log("Whoops! Come back later!");
+        }
+      });
     }
   }
 </script>
