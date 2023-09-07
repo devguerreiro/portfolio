@@ -248,7 +248,7 @@ import XIcon from "../components/icons/XIcon.astro";
           async (e) => {
             e.stopPropagation();
             (e.target as Element).setAttribute("disabled", "disabled");
-            await Promise.all([await showGIF(), await commitHandShake()]);
+            Promise.all([showGIF(), commitHandShake()]);
           },
           { once: true }
         );
