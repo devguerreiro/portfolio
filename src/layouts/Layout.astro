@@ -1,6 +1,5 @@
 ---
-import "../styles/_fonts.sass";
-import "../styles/_components.sass";
+import "../styles/index.sass";
 
 import Header from "../components/Header.astro";
 
@@ -22,27 +21,26 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="container mx-auto px-8 bg-light dark:bg-dark">
+  <body class="container mx-auto">
     <Header />
     <slot />
   </body>
 </html>
 
 <script>
-  const doc = document.documentElement;
-  const docClases = doc.classList;
-  const query = window.matchMedia("(prefers-color-scheme: dark)");
+  const documentClassList = document.documentElement.classList;
+  const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
 
   const setDarkMode = () => {
-    if (!docClases.contains("dark")) docClases.add("dark");
+    if (!documentClassList.contains("dark")) documentClassList.add("dark");
   };
   const unsetDarkMode = () => {
-    if (docClases.contains("dark")) docClases.remove("dark");
+    if (documentClassList.contains("dark")) documentClassList.remove("dark");
   };
 
-  if (query.matches) setDarkMode();
+  if (prefersDarkMode.matches) setDarkMode();
 
-  query.onchange = (ev) => {
+  prefersDarkMode.onchange = (ev) => {
     if (ev.matches) setDarkMode();
     else unsetDarkMode();
   };
