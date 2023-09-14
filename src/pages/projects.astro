@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+import TechIcon from "../components/icons/TechIcon/index.astro";
+
+interface Repo {
+  full_name: string;
+  description: string;
+  language: string;
+  created_at: string;
+  homepage: string;
+  html_url: string;
+}
+
+const myReposURL = "https://api.github.com/users/devguerreiro/repos";
+const reposResponse = await fetch(myReposURL, { method: "GET" });
+const repos = reposResponse.status === 200 ? await reposResponse.json() : [];
+const publishedRepos = (repos as Repo[]).filter((repo) => repo.homepage);
+
+const formatDate = (date: string) => {
+  return new Date(date).toDateString();
+};
+---
+
+<Layout title="Projects" description="Some projects I made in my spare time">
+  <div class="mb-10">
+    <h1 class="text-2xl">Here are some projects I made in my spare time</h1>
+    <div class="mt-8 flex flex-col gap-12">
+      {
+        publishedRepos.map((repo) => (
+          <div class="p-4 rounded-md tiny-shadow dark:bg-dark_contrast">
+            <div class="flex justify-between items-center">
+              <h2 class="text-dark text-xl tracking-wide">
+                <b>{repo.full_name}</b>
+              </h2>
+              <span>
+                <TechIcon language={repo.language} />
+              </span>
+            </div>
+            <div class="h-0.5 my-4 dark:bg-dark" />
+            <div class="flex flex-col">
+              <div class="repo-description">
+                <p>{repo.description}</p>
+              </div>
+              <span class="mt-4 px-2 py-1 rounded-md self-end dark:bg-dark ">
+                📅 {formatDate(repo.created_at)}
+              </span>
+            </div>
+            <div class="mt-6 flex justify-around gap-4">
+              <a class="grow basis-0" href={repo.html_url} target="_blank">
+                <button class="btn-dark w-full">📄 Check Repo</button>
+              </a>
+              <a class="grow basis-0" href={repo.homepage} target="_blank">
+                <button class="btn-primary w-full">🔗 Visit</button>
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</Layout>
+
+<style lang="sass">
+  .repo-description
+    overflow: hidden
+    text-overflow: ellipsis
+    display: -webkit-box
+    line-clamp: 3
+    -webkit-line-clamp: 3
+    -webkit-box-orient: vertical
+</style>

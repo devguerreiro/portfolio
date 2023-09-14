@@ -1,0 +1,29 @@
+---
+import JavaScriptIcon from "./JavaScriptIcon.astro";
+import TypeScriptIcon from "./TypeScriptIcon.astro";
+import PythonIcon from "./PythonIcon.astro";
+import VueIcon from "./VueIcon.astro";
+import AstroIcon from "./AstroIcon.astro";
+
+interface Props {
+  language: string | null;
+}
+
+const { language } = Astro.props;
+
+const icons = {
+  javascript: JavaScriptIcon,
+  typescript: TypeScriptIcon,
+  python: PythonIcon,
+  vue: VueIcon,
+  astro: AstroIcon,
+};
+
+let Icon = null
+if (language !== null) {
+  Icon = icons[language.toLowerCase()];
+}
+
+---
+
+{Icon ? <Icon/> : <></>}

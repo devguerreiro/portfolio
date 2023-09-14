@@ -13,5 +13,11 @@
   .social-icon
     @apply block p-2 rounded-md bg-light_contrast dark:bg-dark_contrast tiny-shadow
 
+  .btn
+    @apply px-4 py-2 rounded-sm tiny-shadow disabled:bg-dark_contrast disabled:text-dark_text text-light_text dark:text-dark_text
+
   .btn-primary
-    @apply py-2 mt-6 font-kelly_slab tracking-wider text-light_text bg-primary rounded-sm tiny-shadow disabled:bg-dark_contrast disabled:text-dark_text
+    @apply btn bg-primary text-light_text
+
+  .btn-dark
+    @apply btn bg-dark text-dark_text
