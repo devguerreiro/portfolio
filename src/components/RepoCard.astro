@@ -1,0 +1,56 @@
+---
+import type { IRepo } from "../interfaces/repo";
+
+import TechIcon from "../components/icons/TechIcon/index.astro";
+
+interface Props {
+  repo: IRepo;
+}
+
+const { repo } = Astro.props;
+
+const formatDate = (date: string) => {
+  return new Date(date).toDateString();
+};
+---
+
+<div
+  class="p-6 rounded-md tiny-shadow flex flex-col bg-light_contrast dark:bg-dark_contrast"
+>
+  <div class="flex justify-between items-center">
+    <h2
+      class="w-60 md:w-52 lg:w-80 xl:w-64 2xl:w-56 text-light_text dark:text-dark text-xl tracking-wide overflow-hidden text-ellipsis whitespace-nowrap"
+    >
+      <a href={repo.html_url} target="_blank">
+        <b>{repo.full_name}</b>
+      </a>
+    </h2>
+    <span class="p-2 rounded-md bg-light dark:bg-dark">
+      <TechIcon language={repo.language} />
+    </span>
+  </div>
+  <div class="h-0.5 my-4 bg-light dark:bg-dark"></div>
+  <div class="flex flex-col justify-between grow">
+    <p class="repo-description">{repo.description}</p>
+    <span class="mt-4 px-2 py-1 rounded-md self-end bg-light dark:bg-dark">
+      📅 {formatDate(repo.created_at)}
+    </span>
+  </div>
+  <div class="mt-6">
+    <a href={repo.homepage} target="_blank">
+      <button class="w-full btn-dark hover:btn-primary active:btn-primary">
+        🔗 Go to App
+      </button>
+    </a>
+  </div>
+</div>
+
+<style lang="sass">
+  .repo-description
+    overflow: hidden
+    text-overflow: ellipsis
+    display: -webkit-box
+    line-clamp: 4
+    -webkit-line-clamp: 4
+    -webkit-box-orient: vertical
+</style>
