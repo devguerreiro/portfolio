@@ -1,9 +1,10 @@
 ---
 import { Image } from "astro:assets";
-
 import { getCollection } from "astro:content";
 
 import Layout from "../layouts/Layout.astro";
+
+import Topic from "../components/Topic.astro";
 
 const aboutCollection = await getCollection("about");
 const aboutCollectionRendered = await Promise.all(
@@ -22,24 +23,15 @@ const aboutCollectionRendered = await Promise.all(
     <div class="lg:flex lg:flex-col lg:gap-16">
       {
         aboutCollectionRendered.map((piece, index) => (
-          <div
-            class:list={[
-              "lg:w-1/2",
-              index % 2 ? "lg:self-end lg:pl-4" : "lg:self-start lg:pr-4",
-            ]}
+          <Topic
+            index={index}
+            topic={{
+              title: piece.data.topic,
+              emoji: piece.data.emoji,
+            }}
           >
-            <div
-              id="divider"
-              class="my-10 h-1 bg-light_contrast dark:bg-dark_contrast"
-            />
-            <div id="topic" class="flex items-center gap-4">
-              <span>{piece.data.emoji}</span>
-              <h2 class="text-xl capitalize">{piece.data.topic}</h2>
-            </div>
-            <div id="content" class="mt-4">
-              <piece.body.Content />
-            </div>
-          </div>
+            <piece.body.Content />
+          </Topic>
         ))
       }
     </div>
