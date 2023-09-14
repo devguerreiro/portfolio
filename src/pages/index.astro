@@ -44,7 +44,7 @@ import XIcon from "../components/icons/XIcon.astro";
         </h2>
         <button
           id="crazy-handshake-button"
-          class="btn-primary w-full mt-6 font-kelly_slab tracking-wider"
+          class="w-full mt-6 btn-primary font-kelly_slab tracking-wider"
           disabled
         >
           GimMe a CraZy HandShaKe 🤝
@@ -100,6 +100,10 @@ import XIcon from "../components/icons/XIcon.astro";
 </Layout>
 
 <script>
+  const STORAGE_hasAlreadyCrazyHandshaked = "hasAlreadyCrazyHandshaked"
+  const STORAGE_hasAlreadyVisited = "hasAlreadyVisited"
+  const STORAGE_handshakeGIF = "handshakeGIF"
+
   setupCrazyHandshake();
   checkNewVisitor();
 
@@ -116,7 +120,7 @@ import XIcon from "../components/icons/XIcon.astro";
     };
 
     const hasAlreadyCrazyHandshaked = localStorage.getItem(
-      "hasAlreadyCrazyHandshaked"
+      STORAGE_hasAlreadyCrazyHandshaked
     );
     if (hasAlreadyCrazyHandshaked === null) {
       const hiddeImage = () => {
@@ -188,7 +192,7 @@ import XIcon from "../components/icons/XIcon.astro";
               removeMessage(); // searching message
               showImage(); // GIF image
               showThanks();
-              localStorage.setItem("handshakeGIF", JSON.stringify(gif));
+              localStorage.setItem(STORAGE_handshakeGIF, JSON.stringify(gif));
               resolve();
             }, 1000);
           });
@@ -231,7 +235,7 @@ import XIcon from "../components/icons/XIcon.astro";
           }
         );
         if (response.status === 200) {
-          localStorage.setItem("hasAlreadyCrazyHandshaked", "true");
+          localStorage.setItem(STORAGE_hasAlreadyCrazyHandshaked, "true");
           console.log(
             "Yeah! Nice handshake! Welcome to the group of crazy handshakers :D"
           );
@@ -260,7 +264,7 @@ import XIcon from "../components/icons/XIcon.astro";
       if (crazyHandshakeButton !== null) {
         crazyHandshakeButton.innerHTML = "Yoh! Thanks for your 🤝";
       }
-      const gif = localStorage.getItem("handshakeGIF");
+      const gif = localStorage.getItem(STORAGE_handshakeGIF);
       if (gif) {
         swapImageForGIF(JSON.parse(gif));
       }
@@ -268,7 +272,7 @@ import XIcon from "../components/icons/XIcon.astro";
   }
 
   function checkNewVisitor() {
-    if (localStorage.getItem("hasAlreadyVisited") === null) {
+    if (localStorage.getItem(STORAGE_hasAlreadyVisited) === null) {
       fetch(`https://api.api-ninjas.com/v1/counter?id=visits&hit=true`, {
         method: "GET",
         headers: {
@@ -276,7 +280,7 @@ import XIcon from "../components/icons/XIcon.astro";
         },
       }).then((response) => {
         if (response.status === 200) {
-          localStorage.setItem("hasAlreadyVisited", "true");
+          localStorage.setItem(STORAGE_hasAlreadyVisited, "true");
           console.log("Whatsup! Welcome to my personal website!");
         } else {
           console.log("Whoops! Come back later!");

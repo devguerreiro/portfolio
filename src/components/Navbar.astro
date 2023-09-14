@@ -45,11 +45,17 @@ import HandshakeIcon from "./icons/HandshakeIcon.astro";
 </div>
 
 <script>
+  const STORAGE_COUNTERS = "counters";
+
   document.addEventListener("click", () => {
     const navbar = document.querySelector("#navbar");
     if (navbar && !navbar.classList.contains("hidden"))
       navbar.classList.add("hidden");
   });
+
+  if (location.pathname === "/") {
+    localStorage.removeItem(STORAGE_COUNTERS);
+  }
 
   const getCounters = async (counter: string) => {
     const response = await fetch(
@@ -91,13 +97,13 @@ import HandshakeIcon from "./icons/HandshakeIcon.astro";
     handshakesCounterElement.innerText = getCounterAbv(handshakesCount);
   };
 
-  const cachedCounters = localStorage.getItem("counters");
+  const cachedCounters = localStorage.getItem(STORAGE_COUNTERS);
 
   if (cachedCounters === null) {
     Promise.all([getCounters("visits"), getCounters("handshakes")]).then(
       (counters) => {
         setCounters(counters as number[]);
-        localStorage.setItem("counters", JSON.stringify(counters));
+        localStorage.setItem(STORAGE_COUNTERS, JSON.stringify(counters));
       }
     );
   } else {
