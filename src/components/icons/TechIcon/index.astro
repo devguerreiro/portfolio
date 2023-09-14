@@ -5,8 +5,18 @@ import PythonIcon from "./PythonIcon.astro";
 import VueIcon from "./VueIcon.astro";
 import AstroIcon from "./AstroIcon.astro";
 
+enum Languages {
+  javascript,
+  typescript,
+  python,
+  vue,
+  astro,
+}
+
+type TLanguages = keyof typeof Languages;
+
 interface Props {
-  language: string | null;
+  language: TLanguages | string | null;
 }
 
 const { language } = Astro.props;
@@ -21,7 +31,7 @@ const icons = {
 
 let Icon = null
 if (language !== null) {
-  Icon = icons[language.toLowerCase()];
+  Icon = icons[language.toLowerCase() as TLanguages];
 }
 
 ---
