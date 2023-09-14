@@ -23,7 +23,10 @@ const aboutCollectionRendered = await Promise.all(
       {
         aboutCollectionRendered.map((piece) => (
           <div>
-            <div id="divider" class="my-10 h-1 bg-dark_contrast" />
+            <div
+              id="divider"
+              class="my-10 h-1 bg-light_contrast dark:bg-dark_contrast"
+            />
             <div id="topic" class="flex items-center gap-4">
               <span>{piece.data.emoji}</span>
               <h2 class="text-xl capitalize">{piece.data.topic}</h2>
