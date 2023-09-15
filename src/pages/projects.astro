@@ -4,12 +4,12 @@ import type { IRepo } from "../interfaces/repo";
 import Layout from "../layouts/Layout.astro";
 import RepoCard from "../components/RepoCard.astro";
 
-import publishedRepos from "./mock.json";
+// import publishedRepos from "../_mock.json";
 
-// const myReposURL = "https://api.github.com/users/devguerreiro/repos";
-// const reposResponse = await fetch(myReposURL, { method: "GET" });
-// const repos = reposResponse.status === 200 ? await reposResponse.json() : [];
-// const publishedRepos = (repos as IRepo[]).filter((repo) => repo.homepage);
+const myReposURL = "https://api.github.com/users/devguerreiro/repos";
+const reposResponse = await fetch(myReposURL, { method: "GET" });
+const repos = reposResponse.status === 200 ? await reposResponse.json() : [];
+const publishedRepos = (repos as IRepo[]).filter((repo) => repo.homepage);
 ---
 
 <Layout title="Projects" description="Some projects I made in my spare time">
