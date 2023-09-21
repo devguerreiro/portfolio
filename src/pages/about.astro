@@ -34,16 +34,20 @@ const aboutCollectionRendered = await Promise.all(
       }
     </div>
     <div class="mt-80 mb-8">
-      <Image
-        class="mx-auto"
-        src="https://media.tenor.com/fR6MrcAyv5sAAAAC/nice-to-meet-me-michael-scott.gif"
-        alt="Dating mike saying 'nice to meet me'"
-        width={300}
-        height={300}
-      />
-      <p class="mt-6 text-center text-primary font-baskerville">
-        <b>Yes! I really like this guy</b> 😂
-      </p>
+      <figure>
+        <Image
+          class="mx-auto"
+          src="https://media.tenor.com/fR6MrcAyv5sAAAAC/nice-to-meet-me-michael-scott.gif"
+          alt="Dating mike saying 'nice to meet me'"
+          width={300}
+          height={300}
+        />
+        <figcaption class="mt-4 text-center">
+          <b class="text-light_text dark:text-dark_text font-baskerville">
+            Yes! I really like this guy 😂
+          </b>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </Layout>

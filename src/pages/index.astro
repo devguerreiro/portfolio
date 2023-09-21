@@ -85,8 +85,7 @@ import XIcon from "../components/icons/XIcon.astro";
       id="selfie"
       class="w-80 2xl:w-96 h-60 xl:h-72 relative mt-16 lg:mt-0 p-2 border-2 border-primary rounded-md flex justify-center"
     >
-      <Image class="object-cover" src={Selfie} alt="A selfie photo of me" />
-
+      <Image class="object-cover" src={Selfie} alt="A selfie of me" />
       <div class="bg-details">
         <SquareIcon class="absolute -top-6 right-0 -z-10" size={50} />
         <XIcon class="absolute -bottom-8 -left-8 -z-10" size={75} />
@@ -184,7 +183,7 @@ import XIcon from "../components/icons/XIcon.astro";
         });
         if (response.status == 200) {
           const data = await response.json();
-          const gif = data.results[0].media_formats.gif;
+          const gif = data.results[0].media_formats.mediumgif;
 
           swapImageForGIF(gif);
 

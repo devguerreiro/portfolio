@@ -21,7 +21,7 @@ const { index, topic } = Astro.props;
   </div>
   <div id="topic" class="flex items-center gap-4">
     <span>{topic.emoji}</span>
-    <h2 class="text-xl capitalize">{topic.title}</h2>
+    <h2 class="text-xl capitalize"><b>{topic.title}</b></h2>
   </div>
   <div id="content" class="mt-4">
     <slot />

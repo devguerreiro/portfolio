@@ -16,7 +16,7 @@ import HandshakeIcon from "./icons/HandshakeIcon.astro";
     <ul
       class="flex flex-col md:flex-row items-center md:justify-end gap-4 md:gap-12 lg:gap-16"
     >
-      <div
+      <li
         class="flex items-center gap-4 border-b md:border-b-0 md:border-r-2 border-dark md:border-dark_contrast pb-4 md:pb-0 md:pr-8"
       >
         <div id="handshakes-counter" class="flex gap-2">
@@ -27,19 +27,27 @@ import HandshakeIcon from "./icons/HandshakeIcon.astro";
           <UserIcon class="text-primary" />
           <b>-</b>
         </div>
-      </div>
-      <div class="w-full md:w-auto flex md:block">
+      </li>
+      <li class="w-full md:w-auto flex md:block">
         <GreetingIcon class="navbar-icon" />
-        <a href="/"><li>Home</li></a>
-      </div>
-      <div class="w-full md:w-auto flex md:block">
+        <a href="/" aria-label="link to the home page">Home</a>
+      </li>
+      <li class="w-full md:w-auto flex md:block">
         <InfoIcon class="navbar-icon" />
-        <a href="/about"><li>About</li></a>
-      </div>
-      <div class="w-full md:w-auto flex md:block">
+        <a
+          href="/about"
+          aria-label="link to the page that contains information about me"
+          >About</a
+        >
+      </li>
+      <li class="w-full md:w-auto flex md:block">
         <PresentationIcon class="navbar-icon" />
-        <a href="/projects"><li>Projects</li></a>
-      </div>
+        <a
+          href="/projects"
+          aria-label="link to the page that contains a list of my personal projects"
+          >Projects</a
+        >
+      </li>
     </ul>
   </nav>
 </div>

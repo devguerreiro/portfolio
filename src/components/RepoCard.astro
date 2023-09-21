@@ -19,7 +19,7 @@ const formatDate = (date: string) => {
 >
   <div class="flex justify-between items-center">
     <h2
-      class="w-60 md:w-4/5 lg:w-64 xl:w-52 2xl:w-72 text-light_text dark:text-dark text-xl tracking-wide overflow-hidden text-ellipsis whitespace-nowrap"
+      class="w-60 md:w-4/5 lg:w-64 xl:w-52 2xl:w-72 text-light_text dark:text-dark_text text-xl tracking-wide overflow-hidden text-ellipsis whitespace-nowrap"
     >
       <a href={repo.html_url} target="_blank">
         <b>{repo.full_name}</b>
@@ -39,7 +39,7 @@ const formatDate = (date: string) => {
   <div class="mt-6">
     <a href={repo.homepage} target="_blank">
       <button
-        class="w-full btn-dark hover:animate-bounce hover:btn-primary active:btn-primary"
+        class="w-full btn bg-light dark:bg-dark hover:animate-bounce hover:btn-primary"
       >
         🔗 Go to App
       </button>
