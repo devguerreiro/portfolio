@@ -12,7 +12,9 @@ const { index, topic } = Astro.props;
 <div
   class:list={[
     "lg:w-1/2",
-    index % 2 ? "lg:self-end lg:pl-4" : "lg:self-start lg:pr-4",
+    index % 2
+      ? "lg:self-end lg:pl-4 animate-slide-left"
+      : "lg:self-start lg:pr-4 animate-slide-right",
   ]}
 >
   <div id="divider" class="my-10 h-1 bg-light_contrast dark:bg-dark_contrast">

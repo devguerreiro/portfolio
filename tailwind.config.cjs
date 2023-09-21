@@ -20,6 +20,20 @@ module.exports = {
         roboto: "Roboto",
         sans: "Roboto",
       },
+      keyframes: {
+        "slide-right": {
+          from: { transform: "translateX(-200px)", opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "slide-left": {
+          from: { transform: "translateX(200px)", opacity: "0" },
+          to: { opacity: "1" },
+        },
+      },
+      animation: {
+        "slide-right": "slide-right 1s ease",
+        "slide-left": "slide-left 1s ease",
+      },
     },
   },
   plugins: [],

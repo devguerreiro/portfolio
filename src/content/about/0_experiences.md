@@ -3,7 +3,7 @@ topic: "Experiences"
 emoji: "👨‍💻"
 ---
 
-I have been working as a developer since 2019, when I started a project on my college where I did learn Python and Django. In 2020 I find a free onsite course about Vue.js that was sponsored by a company called Conta Azul and I did it.
+I have been working as a developer since 2019, when I started a project in my college where I did learn Python and Django. In 2020 I found a free onsite course about Vue.js that was sponsored by a company called Conta Azul and I did it.
 
 <br/>
 
