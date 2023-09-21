@@ -11,7 +11,10 @@
     @apply shadow-md shadow-gray-200 dark:shadow-neutral-900
 
   .social-icon
-    @apply block p-2 rounded-md bg-light_contrast dark:bg-dark_contrast tiny-shadow
+    @apply block p-2 rounded-md bg-light_contrast dark:bg-dark_contrast tiny-shadow 
+
+  .social-icon:hover
+    @apply bg-primary text-light animate-bounce
 
   .btn
     @apply px-4 py-2 rounded-sm tiny-shadow disabled:bg-dark_contrast disabled:text-dark_text text-light_text dark:text-dark_text
