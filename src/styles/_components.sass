@@ -17,7 +17,10 @@
     @apply bg-primary text-dark_text animate-bounce
 
   .btn
-    @apply px-4 py-2 rounded-sm tiny-shadow disabled:bg-dark_contrast disabled:text-dark_text
+    @apply px-4 py-2 rounded-sm tiny-shadow
+
+  .btn:disabled
+    @apply bg-light_contrast text-light_text dark:bg-dark_contrast dark:text-dark_text
 
   .btn-primary
     @apply btn bg-primary text-white dark:bg-primary dark:text-white

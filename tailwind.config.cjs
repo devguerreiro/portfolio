@@ -23,11 +23,11 @@ module.exports = {
       },
       keyframes: {
         "slide-right": {
-          from: { transform: "translateX(-200px)", opacity: "0" },
+          from: { transform: "translateX(-300px)", opacity: "0" },
           to: { opacity: "1" },
         },
         "slide-left": {
-          from: { transform: "translateX(200px)", opacity: "0" },
+          from: { transform: "translateX(300px)", opacity: "0" },
           to: { opacity: "1" },
         },
       },
