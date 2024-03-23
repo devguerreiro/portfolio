@@ -101,9 +101,9 @@ import Projects from "../components/Projects/index.astro";
         </div>
         <div
             id="selfie"
-            class="w-80 2xl:w-96 h-60 xl:h-72 relative mt-20 lg:mt-0 p-2 border-2 border-primary rounded-md flex justify-center"
+            class="w-80 2xl:w-96 h-60 xl:h-72 relative mt-20 lg:mt-0 p-2 border-2 border-primary rounded-md flex justify-center invisible"
         >
-            <Image class="object-cover" src={Selfie} alt="A selfie of me" />
+            <img class="object-cover" alt="GIF of a crazy handshake" />
             <div class="bg-details">
                 <SquareIcon class="absolute -top-6 right-0 -z-10" size={50} />
                 <XIcon class="absolute -bottom-8 -left-4 -z-10" size={75} />
@@ -136,6 +136,9 @@ import Projects from "../components/Projects/index.astro";
 
     function setupCrazyHandshake() {
         const swapImageForGIF = (gif: { dims: number[]; url: string }) => {
+            const selfie = document.getElementById("selfie");
+            selfie && selfie.classList.remove("invisible");
+
             const selfieImg = document.querySelector(
                 "#selfie > img"
             ) as HTMLElement;
@@ -146,6 +149,15 @@ import Projects from "../components/Projects/index.astro";
             selfieImg.setAttribute("src", gif.url);
             selfieImg.setAttribute("width", gifWidth);
             selfieImg.setAttribute("height", gifHeight);
+        };
+
+        const showThanks = () => {
+            const crazyHandshakeButton = document.querySelector(
+                "#crazy-handshake-button"
+            );
+            if (crazyHandshakeButton !== null) {
+                crazyHandshakeButton.innerHTML = "Yoh! Thanks for your 🤝";
+            }
         };
 
         const hasAlreadyCrazyHandshaked = localStorage.getItem(
@@ -245,20 +257,6 @@ import Projects from "../components/Projects/index.astro";
                 });
             };
 
-            const showThanks = () => {
-                const selfie = document.querySelector("#selfie") as HTMLElement;
-                const thanks = document.createElement("h2");
-                thanks.classList.add(
-                    "absolute",
-                    "-top-10",
-                    "text-primary",
-                    "font-bold",
-                    "uppercase"
-                );
-                thanks.innerText = "Yoh! Thanks! 🫂";
-                selfie.appendChild(thanks);
-            };
-
             const commitHandShake = async () => {
                 const response = await fetch(
                     `https://api.api-ninjas.com/v1/counter?id=handshakes&hit=true`,
@@ -300,12 +298,7 @@ import Projects from "../components/Projects/index.astro";
                 );
             }
         } else {
-            const crazyHandshakeButton = document.querySelector(
-                "#crazy-handshake-button"
-            );
-            if (crazyHandshakeButton !== null) {
-                crazyHandshakeButton.innerHTML = "Yoh! Thanks for your 🤝";
-            }
+            showThanks();
             const gif = localStorage.getItem(STORAGE_handshakeGIF);
             if (gif) {
                 swapImageForGIF(JSON.parse(gif));
