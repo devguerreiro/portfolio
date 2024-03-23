@@ -17,8 +17,8 @@ import StarIcon from "../components/icons/StarIcon.astro";
 import TriangleIcon from "../components/icons/TriangleIcon.astro";
 import XIcon from "../components/icons/XIcon.astro";
 
-import About from "../components/About/index.astro"
-import Projects from "../components/Projects/index.astro"
+import About from "../components/About/index.astro";
+import Projects from "../components/Projects/index.astro";
 ---
 
 <Layout
@@ -33,24 +33,31 @@ import Projects from "../components/Projects/index.astro"
             id="greeting"
             class="relative md:w-2/3 lg:w-2/5 xl:w-1/3 2xl:w-1/4"
         >
-            <div id="introduction" class="text-light_text dark:text-dark_text">
-                <h1 class="font-kelly_slab text-2xl lg:text-3xl">
+            <div
+                id="introduction"
+                class="font-kelly_slab text-light_text dark:text-dark_text"
+            >
+                <h1 class="text-2xl lg:text-3xl">
                     <b>Whatsup</b>, 🤙
                 </h1>
                 <h2
-                    class="text-light_text dark:text-dark_text mt-4 font-baskerville text-lg lg:text-xl tracking-wider"
+                    class="text-light_text dark:text-dark_text mt-4 text-lg lg:text-xl tracking-wider"
                 >
-                    I'm <i
-                        class="px-2 py-1 tiny-shadow font-roboto text-dark_contrast dark:text-light_contrast bg-light_contrast dark:bg-dark_contrast"
-                        >devguerreiro</i
-                    > and I work as a <b
+                    I'm a full-stack <b
                         class="text-dark_contrast dark:text-light_contrast leading-loose"
-                        >Software Engineer</b
                     >
+                        Software Engineer
+                    </b>
+                    and you can call me
+                    <i
+                        class="px-2 py-1 tiny-shadow text-dark_contrast dark:text-light_contrast bg-light_contrast dark:bg-dark_contrast"
+                    >
+                        Guerreiro
+                    </i>
                 </h2>
                 <button
                     id="crazy-handshake-button"
-                    class="w-full mt-6 btn-primary font-kelly_slab tracking-wider animate-bounce disabled:animate-none"
+                    class="w-full mt-6 btn-primary tracking-wider animate-bounce disabled:animate-none"
                     disabled
                 >
                     GimMe a CraZy HandShaKe 🤝
@@ -97,12 +104,12 @@ import Projects from "../components/Projects/index.astro"
         </div>
         <div
             id="selfie"
-            class="w-80 2xl:w-96 h-60 xl:h-72 relative mt-24 lg:mt-0 p-2 border-2 border-primary rounded-md flex justify-center"
+            class="w-80 2xl:w-96 h-60 xl:h-72 relative mt-20 lg:mt-0 p-2 border-2 border-primary rounded-md flex justify-center"
         >
             <Image class="object-cover" src={Selfie} alt="A selfie of me" />
             <div class="bg-details">
                 <SquareIcon class="absolute -top-6 right-0 -z-10" size={50} />
-                <XIcon class="absolute -bottom-8 -left-8 -z-10" size={75} />
+                <XIcon class="absolute -bottom-8 -left-4 -z-10" size={75} />
                 <RectangleIcon
                     class="absolute -bottom-8 right-0 -z-10"
                     width={120}
@@ -110,11 +117,11 @@ import Projects from "../components/Projects/index.astro"
                 />
             </div>
         </div>
-        <div class="mt-44">
+        <div class="mt-48">
             <About />
         </div>
         <div class="mt-48">
-          <Projects/>
+            <Projects />
         </div>
     </div>
 </Layout>
@@ -245,7 +252,6 @@ import Projects from "../components/Projects/index.astro"
                     "absolute",
                     "-top-10",
                     "text-primary",
-                    "font-kelly_slab",
                     "font-bold",
                     "uppercase"
                 );
