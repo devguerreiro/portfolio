@@ -11,7 +11,7 @@ import Navbar from "./Navbar.astro";
 ---
 
 <header class="flex items-center md:px-0">
-  <div id="logo">
+  <div id="logo" class="mt-4">
     <Image
       class="block dark:hidden"
       src={LogoBlack}
@@ -37,7 +37,7 @@ import Navbar from "./Navbar.astro";
       class="cursor-pointer moon-icon text-light_text dark:text-primary"
     />
   </div>
-  <div id="menu-icon" class="absolute top-6 right-8 md:relative md:hidden">
+  <div id="menu-icon" class="absolute top-10 right-8 md:relative md:hidden">
     <MenuIcon
       width={32}
       height={32}
