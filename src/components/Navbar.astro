@@ -28,27 +28,33 @@ import HandshakeIcon from "./icons/HandshakeIcon.astro";
                     <b>-</b>
                 </div>
             </li>
-            <li class="w-full md:w-auto flex md:block">
-                <GreetingIcon class="navbar-icon" />
-                <a href="#introduction" aria-label="link to the home page">
+            <li class="w-full md:w-auto">
+                <a
+                    href="#introduction"
+                    aria-label="link to the home page"
+                    class="flex md:block"
+                >
+                    <GreetingIcon class="navbar-icon" />
                     Home
                 </a>
             </li>
-            <li class="w-full md:w-auto flex md:block">
-                <InfoIcon class="navbar-icon" />
+            <li class="w-full md:w-auto">
                 <a
                     href="#about"
                     aria-label="link to the page that contains information about me"
+                    class="flex md:block"
                 >
+                    <InfoIcon class="navbar-icon" />
                     About
                 </a>
             </li>
-            <li class="w-full md:w-auto flex md:block">
-                <PresentationIcon class="navbar-icon" />
+            <li class="w-full md:w-auto">
                 <a
                     href="#projects"
                     aria-label="link to the page that contains a list of my personal projects"
+                    class="flex md:block"
                 >
+                    <PresentationIcon class="navbar-icon" />
                     Projects
                 </a>
             </li>
