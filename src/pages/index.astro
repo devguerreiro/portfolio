@@ -25,8 +25,8 @@ import Projects from "../components/Projects/index.astro";
     title="Devguerreiro's Portfolio"
     description="Welcome to my personal website"
 >
-    <div
-        id="content"
+    <section
+        id="introduction"
         class="mt-32 mb-40 lg:mb-0 flex flex-col items-center lg:flex-row lg:justify-between xl:justify-around xl:gap-16"
     >
         <div
@@ -117,13 +117,13 @@ import Projects from "../components/Projects/index.astro";
                 />
             </div>
         </div>
-        <div class="mt-48">
-            <About />
-        </div>
-        <div class="mt-48">
-            <Projects />
-        </div>
-    </div>
+    </section>
+    <section id="about" class="mt-48">
+        <About />
+    </section>
+    <section id="projects" class="mt-48">
+        <Projects />
+    </section>
 </Layout>
 
 <script>
