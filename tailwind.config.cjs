@@ -25,31 +25,31 @@ module.exports = {
                 "slide-in": {
                     from: {
                         transform: "translateX(-500px)",
-                        opacity: "0",
-                        filter: "blur(2px)",
                     },
                     to: {
                         transform: "translateX(0)",
-                        opacity: "1",
-                        filter: "blur(0)",
                     },
                 },
                 "slide-up": {
                     from: {
                         transform: "translateY(500px)",
-                        opacity: "0",
-                        filter: "blur(2px)",
                     },
                     to: {
                         transform: "translateY(0)",
+                    },
+                },
+                "fade-in": {
+                    from: {
+                        opacity: "0",
+                    },
+                    to: {
                         opacity: "1",
-                        filter: "blur(0px)",
                     },
                 },
             },
             animation: {
-                "slide-in": "slide-in 1.5s ease",
-                "slide-up": "slide-up 1.5s ease",
+                "slide-in": "slide-in 0.75s ease, fade-in 0.75s ease",
+                "slide-up": "slide-up 0.75s ease-out, fade-in 0.75s ease-out",
             },
         },
     },

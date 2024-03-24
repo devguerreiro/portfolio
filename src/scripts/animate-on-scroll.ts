@@ -18,10 +18,11 @@ export default () => {
         entries.forEach((entry) => {
             const topic = entry.target;
             if (entry.isIntersecting) {
+                topic.classList.remove("invisible");
                 topic.classList.add("animate-slide-up");
-            }
+            } else topic.classList.add("invisible");
         });
-    })
+    });
     const topics = document.querySelectorAll("[id^='topic']");
     topics.forEach((topic) => {
         observerTopics.observe(topic);
