@@ -123,6 +123,8 @@ import Projects from "../components/Projects/index.astro";
 </Layout>
 
 <script>
+    if (window.innerWidth >= 640) window.location.replace("maintenance");
+
     import animateOnScroll from "../scripts/animate-on-scroll";
     import checkNewVisitor from "../scripts/check-new-visitor";
     import setupCrazyHandshake from "../scripts/setup-crazy-handshake";
