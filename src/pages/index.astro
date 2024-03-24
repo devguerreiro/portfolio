@@ -122,4 +122,12 @@ import Projects from "../components/Projects/index.astro";
     </footer>
 </Layout>
 
-<script src="../scripts/index.ts"></script>
+<script>
+    import animateOnScroll from "../scripts/animate-on-scroll";
+    import checkNewVisitor from "../scripts/check-new-visitor";
+    import setupCrazyHandshake from "../scripts/setup-crazy-handshake";
+
+    setupCrazyHandshake();
+    checkNewVisitor();
+    animateOnScroll();
+</script>

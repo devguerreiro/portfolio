@@ -1,11 +1,9 @@
-const STORAGE_hasAlreadyCrazyHandshaked = "hasAlreadyCrazyHandshaked";
-const STORAGE_hasAlreadyVisited = "hasAlreadyVisited";
-const STORAGE_handshakeGIF = "handshakeGIF";
+import {
+    STORAGE_handshakeGIF,
+    STORAGE_hasAlreadyCrazyHandshaked,
+} from "../const";
 
-setupCrazyHandshake();
-checkNewVisitor();
-
-function setupCrazyHandshake() {
+export default () => {
     const swapImageForGIF = (gif: { dims: number[]; url: string }) => {
         const selfie = document.getElementById("selfie");
         selfie && selfie.classList.remove("invisible");
@@ -134,16 +132,12 @@ function setupCrazyHandshake() {
                 {
                     method: "GET",
                     headers: {
-                        "X-Api-Key": import.meta.env
-                            .PUBLIC_API_NINJA_API_KEY,
+                        "X-Api-Key": import.meta.env.PUBLIC_API_NINJA_API_KEY,
                     },
                 }
             );
             if (response.status === 200) {
-                localStorage.setItem(
-                    STORAGE_hasAlreadyCrazyHandshaked,
-                    "true"
-                );
+                localStorage.setItem(STORAGE_hasAlreadyCrazyHandshaked, "true");
                 console.log(
                     "Yeah! Nice handshake! Welcome to the group of crazy handshakers :D"
                 );
@@ -159,10 +153,7 @@ function setupCrazyHandshake() {
                 "click",
                 async (e) => {
                     e.stopPropagation();
-                    (e.target as Element).setAttribute(
-                        "disabled",
-                        "disabled"
-                    );
+                    (e.target as Element).setAttribute("disabled", "disabled");
                     Promise.all([showGIF(), commitHandShake()]);
                 },
                 { once: true }
@@ -175,22 +166,4 @@ function setupCrazyHandshake() {
             swapImageForGIF(JSON.parse(gif));
         }
     }
-}
-
-function checkNewVisitor() {
-    if (localStorage.getItem(STORAGE_hasAlreadyVisited) === null) {
-        fetch(`https://api.api-ninjas.com/v1/counter?id=visits&hit=true`, {
-            method: "GET",
-            headers: {
-                "X-Api-Key": import.meta.env.PUBLIC_API_NINJA_API_KEY,
-            },
-        }).then((response) => {
-            if (response.status === 200) {
-                localStorage.setItem(STORAGE_hasAlreadyVisited, "true");
-                console.log("Whatsup! Welcome to my personal website!");
-            } else {
-                console.log("Whoops! Come back later!");
-            }
-        });
-    }
-}
+};
