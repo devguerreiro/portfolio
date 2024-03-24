@@ -23,24 +23,24 @@ module.exports = {
             },
             keyframes: {
                 "slide-in": {
-                    "0%": {
+                    from: {
                         transform: "translateX(-500px)",
                         opacity: "0",
                         filter: "blur(2px)",
                     },
-                    "90%": {
+                    to: {
                         transform: "translateX(0)",
                         opacity: "1",
                         filter: "blur(0)",
                     },
                 },
                 "slide-up": {
-                    "0%": {
+                    from: {
                         transform: "translateY(500px)",
                         opacity: "0",
                         filter: "blur(2px)",
                     },
-                    "90%": {
+                    to: {
                         transform: "translateY(0)",
                         opacity: "1",
                         filter: "blur(0px)",
