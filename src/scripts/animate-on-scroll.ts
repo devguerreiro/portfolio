@@ -1,13 +1,29 @@
 export default () => {
-    const observer = new IntersectionObserver((entries) => {
+    // sections
+    const observerSections = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             const section = entry.target;
-            if (entry.isIntersecting) section.classList.remove("invisible");
-            else section.classList.add("invisible");
+            if (entry.isIntersecting) {
+                section.classList.add("animate-slide-in");
+            }
         });
     });
     const sections = document.querySelectorAll("section");
     sections.forEach((section) => {
-        observer.observe(section);
+        observerSections.observe(section);
+    });
+
+    // topics
+    const observerTopics = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const topic = entry.target;
+            if (entry.isIntersecting) {
+                topic.classList.add("animate-slide-up");
+            }
+        });
+    })
+    const topics = document.querySelectorAll("[id^='topic']");
+    topics.forEach((topic) => {
+        observerTopics.observe(topic);
     });
 };

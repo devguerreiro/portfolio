@@ -2,28 +2,28 @@
 import type { ITopic } from "../interfaces/topic";
 
 interface Props {
-  index: number;
-  topic: ITopic;
+    index: number;
+    topic: ITopic;
 }
 
 const { index, topic } = Astro.props;
+const topicID = topic.title.toLowerCase().replaceAll(" ", "-");
 ---
 
 <div
-  class:list={[
-    "lg:w-1/2",
-    index % 2
-      ? "lg:self-end lg:pl-4 animate-slide-left"
-      : "lg:self-start lg:pr-4 animate-slide-right",
-  ]}
+    class:list={[
+        "lg:w-1/2",
+        index % 2 ? "lg:self-end lg:pl-4" : "lg:self-start lg:pr-4",
+    ]}
 >
-  <div id="divider" class="my-10 h-1 bg-light_contrast dark:bg-dark_contrast">
-  </div>
-  <div id="topic" class="flex items-center gap-4">
-    <span>{topic.emoji}</span>
-    <h2 class="text-xl capitalize"><b>{topic.title}</b></h2>
-  </div>
-  <div id="content" class="mt-4">
-    <slot />
-  </div>
+    <div class="my-10 h-1 bg-light_contrast dark:bg-dark_contrast"></div>
+    <div id={`topic-${topicID}`}>
+        <div class="flex items-center gap-4">
+            <span>{topic.emoji}</span>
+            <h2 class="text-xl capitalize"><b>{topic.title}</b></h2>
+        </div>
+        <div class="mt-4">
+            <slot />
+        </div>
+    </div>
 </div>
