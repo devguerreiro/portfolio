@@ -7,8 +7,10 @@ const myReposURL =
     "https://api.github.com/users/devguerreiro/repos?per_page=100";
 const reposResponse = await fetch(myReposURL, { method: "GET" });
 const repos = reposResponse.status === 200 ? await reposResponse.json() : [];
-const publishedRepos = (repos as IRepo[]).filter((repo) => repo.homepage);
-const publishedReposOrderByDateDesc = publishedRepos.sort((a, b) => {
+const portfolioRepos = (repos as IRepo[]).filter((repo) =>
+    repo.topics.includes("portfolio")
+);
+const portfolioReposOrderByDateDesc = portfolioRepos.sort((a, b) => {
     const aDate = new Date(a.created_at);
     const bDate = new Date(b.created_at);
     return bDate.getTime() - aDate.getTime();
@@ -17,5 +19,5 @@ const publishedReposOrderByDateDesc = publishedRepos.sort((a, b) => {
 
 <h1 class="text-2xl">These are some projects I made in my spare time 👌</h1>
 <div class="mt-12 grid gap-12 lg:grid-cols-2 xl:grid-cols-3 md:grid-rows-2">
-    {publishedReposOrderByDateDesc.map((repo) => <RepoCard repo={repo} />)}
+    {portfolioReposOrderByDateDesc.map((repo) => <RepoCard repo={repo} />)}
 </div>
