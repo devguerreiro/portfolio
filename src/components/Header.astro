@@ -1,0 +1,25 @@
+---
+import DarkModeIcon from "./icons/DarkModeIcon.astro";
+import GitHubIcon from "./icons/GitHubIcon.astro";
+import InstagramIcon from "./icons/InstagramIcon.astro";
+import LightModeIcon from "./icons/LightModeIcon.astro";
+import LinkedInIcon from "./icons/LinkedInIcon.astro";
+import TwitchIcon from "./icons/TwitchIcon.astro";
+---
+
+<header
+  class="container h-16 bg-white flex items-center justify-between fixed top-0 left-0"
+>
+  <div class="flex items-center gap-4">
+    <GitHubIcon />
+    <InstagramIcon />
+    <LinkedInIcon />
+    <TwitchIcon />
+  </div>
+  <div>
+    <div class="bg-background rounded-md flex items-center gap-6 px-4 py-2">
+      <DarkModeIcon />
+      <LightModeIcon className="text-primary" />
+    </div>
+  </div>
+</header>
