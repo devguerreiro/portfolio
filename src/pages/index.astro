@@ -1,135 +1,16 @@
 ---
-import Layout from "../layouts/Layout.astro";
-
-import LinkedInIcon from "../components/icons/LinkedInIcon.astro";
-import GitHubIcon from "../components/icons/GitHubIcon.astro";
-import TwitchIcon from "../components/icons/TwitchIcon.astro";
-import InstagramIcon from "../components/icons/InstagramIcon.astro";
-
-import CircleIcon from "../components/icons/CircleIcon.astro";
-import RectangleIcon from "../components/icons/RectangleIcon.astro";
-import SquareIcon from "../components/icons/SquareIcon.astro";
-import StarIcon from "../components/icons/StarIcon.astro";
-import TriangleIcon from "../components/icons/TriangleIcon.astro";
-import XIcon from "../components/icons/XIcon.astro";
-
-import About from "../components/About/index.astro";
-import Projects from "../components/Projects/index.astro";
+import "@/styles/globals.scss";
 ---
 
-<Layout
-    title="Devguerreiro's Portfolio"
-    description="Welcome to my personal website"
->
-    <section
-        id="introduction"
-        class="pt-32 mb-40 flex flex-col items-center lg:flex-row lg:justify-between xl:justify-around xl:gap-16"
-    >
-        <div
-            id="greeting"
-            class="relative md:w-2/3 lg:w-2/5 xl:w-1/3 2xl:w-1/4"
-        >
-            <div class="font-kelly_slab text-light_text dark:text-dark_text">
-                <h1 class="text-2xl lg:text-3xl">
-                    <b>Whatsup</b>, 🤙
-                </h1>
-                <h2
-                    class="text-light_text dark:text-dark_text mt-4 text-lg lg:text-xl tracking-wider"
-                >
-                    I'm a full-stack <b
-                        class="text-dark_contrast dark:text-light_contrast leading-loose"
-                    >
-                        Software Engineer
-                    </b>
-                    and you can call me
-                    <i
-                        class="px-2 py-1 tiny-shadow text-dark_contrast dark:text-light_contrast bg-light_contrast dark:bg-dark_contrast"
-                    >
-                        Guerreiro
-                    </i>
-                </h2>
-                <button
-                    id="crazy-handshake-button"
-                    class="w-full mt-6 btn-primary tracking-wider animate-bounce disabled:animate-none"
-                    disabled
-                >
-                    GimMe a CraZy HandShaKe 🤝
-                </button>
-                <div
-                    id="socials"
-                    class="mt-10 w-full flex justify-between text-light_text dark:text-dark_text"
-                >
-                    <a
-                        id="linkedin"
-                        href="https://linkedin.com/in/devguerreiro"
-                        target="_blank"
-                    >
-                        <LinkedInIcon class="social-icon" />
-                    </a>
-                    <a
-                        id="github"
-                        href="https://github.com/devguerreiro"
-                        target="_blank"
-                    >
-                        <GitHubIcon class="social-icon" />
-                    </a>
-                    <a
-                        id="twitch"
-                        href="https://twitch.tv/devguerreiro"
-                        target="_blank"
-                    >
-                        <TwitchIcon class="social-icon" />
-                    </a>
-                    <a
-                        id="instagram"
-                        href="https://instagram.com/devguerreiro"
-                        target="_blank"
-                    >
-                        <InstagramIcon class="social-icon" />
-                    </a>
-                </div>
-            </div>
-            <div class="bg-details">
-                <TriangleIcon class="absolute -top-12 left-0 -z-10" size={35} />
-                <StarIcon class="absolute -top-16 right-32 -z-10" size={30} />
-                <CircleIcon class="absolute top-0 right-0 -z-10" size={40} />
-            </div>
-        </div>
-        <div
-            id="selfie"
-            class="w-80 2xl:w-96 h-60 xl:h-72 relative mt-20 lg:mt-0 p-2 border-2 border-primary rounded-md flex justify-center invisible"
-        >
-            <img class="object-cover" alt="GIF of a crazy handshake" />
-            <div class="bg-details">
-                <SquareIcon class="absolute -top-6 right-0 -z-10" size={50} />
-                <XIcon class="absolute -bottom-8 -left-4 -z-10" size={75} />
-                <RectangleIcon
-                    class="absolute -bottom-8 right-0 -z-10"
-                    width={120}
-                    height={20}
-                />
-            </div>
-        </div>
-    </section>
-    <section id="about" class="pt-8 mb-32">
-        <About />
-    </section>
-    <section id="projects" class="pt-8">
-        <Projects />
-    </section>
-    <footer class="mt-8 py-8">
-        <p class="text-center">Developed with kindness 💙</p>
-    </footer>
-</Layout>
-
-<script>
-    if (window.innerWidth >= 640) window.location.replace("maintenance");
-
-    import animateOnScroll from "../scripts/animate-on-scroll";
-    import checkNewVisitor from "../scripts/check-new-visitor";
-    import setupCrazyHandshake from "../scripts/setup-crazy-handshake";
-
-    setupCrazyHandshake();
-    checkNewVisitor();
-    animateOnScroll();
-</script>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1 class="text-center">Astro</h1>
+  </body>
+</html>
