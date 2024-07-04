@@ -27,45 +27,47 @@ import NextJsIcon from "@/components/icons/techs/NextJsIcon.astro";
   </head>
   <body>
     <Header />
-    <main class="mt-12 space-y-12 md:space-y-24">
-      <div class="space-y-12 md:grid md:grid-cols-2 md:container md:space-y-0">
-        <div class="container md:p-0">
-          <h1 class="text-4xl">
+    <main
+      class="h-screen mt-12 space-y-12 md:space-y-24 xl:grid xl:grid-cols-2 xl:space-y-0 xl:container xl:items-center"
+    >
+      <div
+        class="space-y-12 md:grid md:grid-cols-2 md:container md:space-y-0 xl:flex xl:flex-col xl:space-y-12 xl:p-0 xl:w-min xl:m-0"
+      >
+        <div class="container md:p-0 md:w-max md:m-0">
+          <h1 class="text-4xl w-fit xl:text-5xl">
             I’m a
-            <span class="text-primary">
-              <br />Full Stack
-              <br />Software Engineer
-            </span>
+            <span class="text-primary block xl:inline"> Full Stack </span>
+            <span class="text-primary block"> Software Engineer </span>
           </h1>
-          <h2 class="text-sm mt-2">and a SaaS builder specialist</h2>
+          <h2 class="text-sm mt-2 xl:text-xl">and a SaaS builder specialist</h2>
           <button
-            class="w-full bg-primary rounded shadow-md uppercase py-2 text-white font-bold mt-4"
+            class="w-full bg-primary rounded shadow-md uppercase py-2 text-white font-bold mt-4 xl:text-2xl"
           >
             hire me
           </button>
         </div>
         <div
-          class="bg-white h-24 flex items-center shadow-sm md:h-auto md:ml-auto"
+          class="bg-white h-24 flex items-center shadow-sm md:h-auto md:ml-auto xl:m-0"
         >
           <div
-            class="container flex justify-between text-[10px] text-center font-kelly_slab uppercase md:flex-col md:h-full md:p-6"
+            class="container flex justify-between text-[10px] text-center font-kelly_slab uppercase md:flex-col md:h-full md:p-6 xl:flex-row xl:text-xs"
           >
             <div>
-              <p class="text-xl text-primary">5+</p>
+              <p class="text-xl text-primary xl:text-2xl">5+</p>
               <p>years of experience</p>
             </div>
             <div>
-              <p class="text-xl text-primary">6+</p>
+              <p class="text-xl text-primary xl:text-2xl">6+</p>
               <p>segments</p>
             </div>
             <div>
-              <p class="text-xl text-primary">65+</p>
+              <p class="text-xl text-primary xl:text-2xl">65+</p>
               <p>projects</p>
             </div>
           </div>
         </div>
       </div>
-      <div class="bg-white py-6 shadow-sm">
+      <div class="bg-white py-6 shadow-sm xl:w-full xl:ml-auto">
         <div class="container space-y-8">
           <h3 class="text-center text-xl">Tech Stack</h3>
           <div class="grid grid-cols-3 gap-8">

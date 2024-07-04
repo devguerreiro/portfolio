@@ -8,19 +8,21 @@ import LinkedInIcon from "./icons/socials/LinkedInIcon.astro";
 import TwitchIcon from "./icons/socials/TwitchIcon.astro";
 ---
 
-<header class="container h-16 bg-white flex items-center justify-between">
-  <div class="flex items-center gap-4">
-    <GitHubIcon />
-    <InstagramIcon />
-    <LinkedInIcon />
-    <TwitchIcon />
-  </div>
-  <div>
-    <div
-      class="bg-[#F5F5F5] rounded-lg shadow flex items-center gap-6 px-4 py-2"
-    >
-      <DarkModeIcon />
-      <LightModeIcon className="text-primary" />
+<header class="bg-white sticky top-0 left-0 w-full">
+  <div class="h-16 container flex items-center justify-between">
+    <div class="flex items-center gap-4">
+      <GitHubIcon />
+      <InstagramIcon />
+      <LinkedInIcon />
+      <TwitchIcon />
+    </div>
+    <div>
+      <div
+        class="bg-[#F5F5F5] rounded-lg shadow flex items-center gap-6 px-4 py-2"
+      >
+        <DarkModeIcon />
+        <LightModeIcon className="text-primary" />
+      </div>
     </div>
   </div>
 </header>
