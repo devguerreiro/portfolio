@@ -5,16 +5,7 @@ import "@fontsource/kelly-slab";
 import "@fontsource/inter";
 
 import Header from "@/components/Header.astro";
-
-import PythonIcon from "@/components/icons/techs/PythonIcon.astro";
-import TypeScriptIcon from "@/components/icons/techs/TypeScriptIcon.astro";
-import DjangoRestIcon from "@/components/icons/techs/DjangoRestIcon.astro";
-import FastAPIIcon from "@/components/icons/techs/FastAPIIcon.astro";
-import ExpressIcon from "@/components/icons/techs/ExpressIcon.astro";
-import VueJsIcon from "@/components/icons/techs/VueJsIcon.astro";
-import ReactJsIcon from "@/components/icons/techs/ReactJsIcon.astro";
-import NuxtJsIcon from "@/components/icons/techs/NuxtJsIcon.astro";
-import NextJsIcon from "@/components/icons/techs/NextJsIcon.astro";
+import Greetings from "@/components/Greetings/index.astro";
 ---
 
 <html lang="en">
@@ -27,111 +18,6 @@ import NextJsIcon from "@/components/icons/techs/NextJsIcon.astro";
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />
-    <main
-      class="flex-grow mt-12 space-y-12 md:space-y-24 xl:grid xl:grid-cols-2 xl:space-y-0 xl:container xl:items-center"
-    >
-      <div
-        class="space-y-12 md:grid md:grid-cols-2 md:container md:space-y-0 xl:flex xl:flex-col xl:space-y-12 xl:p-0 xl:w-min xl:m-0"
-      >
-        <div class="container md:p-0 md:w-max md:m-0">
-          <h1 class="text-4xl w-fit md:text-[40px] lg:text-5xl xl:text-6xl">
-            I’m a
-            <span class="text-primary block xl:inline"> Full Stack </span>
-            <span class="text-primary block"> Software Engineer </span>
-          </h1>
-          <h2 class="mt-2 text-sm md:text-base lg:text-xl xl:text-2xl">
-            and a SaaS builder specialist
-          </h2>
-          <button
-            class="w-full bg-primary rounded shadow-md uppercase py-2 text-white font-bold mt-4 text-sm md:text-base lg:text-xl xl:text-2xl"
-          >
-            hire me
-          </button>
-        </div>
-        <div
-          class="bg-white h-24 flex items-center shadow-sm md:h-auto md:ml-auto xl:m-0"
-        >
-          <div
-            class="container flex justify-between text-[10px] text-center font-kelly_slab uppercase md:flex-col md:h-full md:p-6 xl:flex-row md:text-xs lg:text-sm xl:text-base"
-          >
-            <div>
-              <p class="text-lg text-primary lg:text-xl xl:text-2xl">5+</p>
-              <p>years of experience</p>
-            </div>
-            <div>
-              <p class="text-lg text-primary lg:text-xl xl:text-2xl">6+</p>
-              <p>segments</p>
-            </div>
-            <div>
-              <p class="text-lg text-primary lg:text-xl xl:text-2xl">65+</p>
-              <p>projects</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="bg-white py-6 shadow-sm xl:w-3/4 xl:ml-auto">
-        <div class="container space-y-8">
-          <h3 class="text-center text-xl md:text-2xl lg:text-3xl">
-            Tech Stack
-          </h3>
-          <div class="grid grid-cols-3 gap-8 md:grid-cols-4">
-            <div
-              class="bg-primary/5 rounded-md flex justify-center h-20"
-              title="Python"
-            >
-              <PythonIcon />
-            </div>
-            <div
-              class="bg-primary/5 rounded-md flex justify-center h-20"
-              title="TypeScript"
-            >
-              <TypeScriptIcon className="mx-auto" />
-            </div>
-            <div
-              class="bg-primary/5 rounded-md flex justify-center h-20"
-              title="Django Rest Framework"
-            >
-              <DjangoRestIcon className="mx-auto" />
-            </div>
-            <div
-              class="bg-primary/5 rounded-md flex justify-center h-20"
-              title="FastAPI"
-            >
-              <FastAPIIcon className="mx-auto" />
-            </div>
-            <div
-              class="bg-primary/5 rounded-md flex justify-center h-20"
-              title="Express.js"
-            >
-              <ExpressIcon className="mx-auto" />
-            </div>
-            <div
-              class="bg-primary/5 rounded-md flex justify-center h-20"
-              title="Vue.js"
-            >
-              <VueJsIcon className="mx-auto" />
-            </div>
-            <div
-              class="bg-primary/5 rounded-md flex justify-center h-20"
-              title="React.js"
-            >
-              <ReactJsIcon className="mx-auto" />
-            </div>
-            <div
-              class="bg-primary/5 rounded-md flex justify-center h-20"
-              title="Nuxt.js"
-            >
-              <NuxtJsIcon className="mx-auto" />
-            </div>
-            <div
-              class="bg-primary/5 rounded-md flex justify-center h-20"
-              title="Next.js"
-            >
-              <NextJsIcon className="mx-auto" />
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+    <Greetings />
   </body>
 </html>
