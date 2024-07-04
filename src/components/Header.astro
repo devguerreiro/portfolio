@@ -8,13 +8,21 @@ import LinkedInIcon from "./icons/socials/LinkedInIcon.astro";
 import TwitchIcon from "./icons/socials/TwitchIcon.astro";
 ---
 
-<header class="bg-white sticky top-0 left-0 w-full">
+<header class="w-full bg-white sticky top-0 left-0">
   <div class="h-16 container flex items-center justify-between">
-    <div class="flex items-center gap-4">
-      <GitHubIcon />
-      <InstagramIcon />
-      <LinkedInIcon />
-      <TwitchIcon />
+    <div class="flex items-center gap-4 md:gap-6">
+      <a href="https://github.com/devguerreiro" target="_blank">
+        <GitHubIcon className="w-4 md:w-6" />
+      </a>
+      <a href="https://linkedin.com/in/devguerreiro" target="_blank">
+        <LinkedInIcon className="w-4 md:w-6" />
+      </a>
+      <a href="https://www.instagram.com/devguerreiro" target="_blank">
+        <InstagramIcon className="w-4 md:w-6" />
+      </a>
+      <a href="https://www.twitch.tv/devguerreiro" target="_blank">
+        <TwitchIcon className="w-4 md:w-6" />
+      </a>
     </div>
     <div>
       <div
