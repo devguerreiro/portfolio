@@ -1,0 +1,46 @@
+---
+import DarkModeIcon from "./icons/DarkModeIcon.astro";
+import LightModeIcon from "./icons/LightModeIcon.astro";
+---
+
+<div class="bg-background rounded-lg shadow flex items-center gap-6 px-4 py-2">
+  <button type="button" id="dark">
+    <DarkModeIcon className="dark:text-primary" />
+  </button>
+  <button type="button" id="light">
+    <LightModeIcon className="dark:text-[#E1E1E1]" />
+  </button>
+</div>
+
+<script defer>
+  const userPrefersDarkMode = window.matchMedia("(prefers-color-scheme: dark");
+
+  let userThemePreference = localStorage.getItem("userThemePreference");
+  if (!userThemePreference) {
+    userThemePreference = userPrefersDarkMode.matches ? "dark" : "light";
+  }
+
+  if (userThemePreference === "dark") {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+
+  userPrefersDarkMode.addEventListener("change", (e) => {
+    if (e.matches) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  });
+
+  document.querySelector("#dark")?.addEventListener("click", () => {
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("userThemePreference", "dark");
+  });
+
+  document.querySelector("#light")?.addEventListener("click", () => {
+    document.documentElement.classList.remove("dark");
+    localStorage.setItem("userThemePreference", "light");
+  });
+</script>

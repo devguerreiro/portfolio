@@ -1,23 +1,73 @@
 ---
-import type { IRepo } from "../../interfaces/repo";
-
-import RepoCard from "../RepoCard.astro";
-
 const myReposURL =
-    "https://api.github.com/users/devguerreiro/repos?per_page=100";
+  "https://api.github.com/users/devguerreiro/repos?per_page=100";
 const reposResponse = await fetch(myReposURL, { method: "GET" });
 const repos = reposResponse.status === 200 ? await reposResponse.json() : [];
-const portfolioRepos = (repos as IRepo[]).filter((repo) =>
-    repo.topics.includes("portfolio")
+const portfolioRepos = repos.filter((repo: any) =>
+  repo.topics.includes("portfolio")
 );
-const portfolioReposOrderByDateDesc = portfolioRepos.sort((a, b) => {
-    const aDate = new Date(a.created_at);
-    const bDate = new Date(b.created_at);
-    return bDate.getTime() - aDate.getTime();
+const portfolioReposOrderByDateDesc = portfolioRepos.sort((a: any, b: any) => {
+  const aDate = new Date(a.created_at);
+  const bDate = new Date(b.created_at);
+  return bDate.getTime() - aDate.getTime();
 });
+
+const formatDate = (date: string) => {
+  return new Date(date).toDateString();
+};
 ---
 
-<h1 class="text-2xl">These are some projects I made in my spare time 👌</h1>
-<div class="mt-12 grid gap-12 lg:grid-cols-2 xl:grid-cols-3 md:grid-rows-2">
-    {portfolioReposOrderByDateDesc.map((repo) => <RepoCard repo={repo} />)}
-</div>
+<section class="container space-y-12">
+  <h2 class="text-primary text-2xl text-center md:text-2xl lg:text-3xl">
+    Projects
+  </h2>
+  <p>
+    I have already made a lot of public projects, but those are web specific and
+    the most complete I made off work.
+  </p>
+  <div
+    class="space-y-12 md:space-y-0 md:grid md:grid-cols-2 md:gap-8 xl:grid-cols-3"
+  >
+    {
+      portfolioReposOrderByDateDesc.map((repo: any) => (
+        <div class="p-6 rounded-md tiny-shadow flex flex-col bg-foreground hover:scale-110">
+          <div class="flex justify-between items-center">
+            <h2 class="w-56 text-secondary text-lg tracking-wide overflow-hidden text-ellipsis whitespace-nowrap md:w-4/5 lg:w-64 lg:text-xl xl:w-64 2xl:w-72">
+              <a href={repo.html_url} target="_blank">
+                <b>{repo.full_name}</b>
+              </a>
+            </h2>
+            {/* <span class="p-2 rounded-md bg-light dark:bg-dark hover:animate-spin">
+              <TechIcon language={repo.language} />
+            </span> */}
+          </div>
+          <hr class="my-4" />
+          <div class="space-y-4 flex flex-col flex-grow">
+            <p class="text-xs md:text-sm">{repo.description}</p>
+            <div class="flex gap-2 flex-wrap flex-grow">
+              {repo.topics
+                .filter((topic: any) => topic !== "portfolio")
+                .map((topic: any) => (
+                  <div class="h-fit text-[10px] bg-primary rounded text-white px-2 py-1 uppercase">
+                    {topic}
+                  </div>
+                ))}
+            </div>
+            <div class="w-fit ml-auto">
+              <span class="px-2 py-1 rounded-md self-end bg-background">
+                📅 {formatDate(repo.created_at)}
+              </span>
+            </div>
+          </div>
+          <div class="mt-6">
+            <a href={repo.html_url} target="_blank">
+              <button class="w-full text-primary text-base font-semibold hover:animate-bounce lg:text-lg">
+                See more
+              </button>
+            </a>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

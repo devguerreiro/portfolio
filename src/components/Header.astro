@@ -1,80 +1,30 @@
 ---
-import { Image } from "astro:assets";
-import LogoBlack from "../static/logo-black.png";
-import LogoWhite from "../static/logo-white.png";
+import GitHubIcon from "@/components/icons/socials/GitHubIcon.astro";
+import InstagramIcon from "@/components/icons/socials/InstagramIcon.astro";
+import LinkedInIcon from "@/components/icons/socials/LinkedInIcon.astro";
+import TwitchIcon from "@/components/icons/socials/TwitchIcon.astro";
 
-import MenuIcon from "./icons/MenuIcon.astro";
-import SunIcon from "./icons/SunIcon.astro";
-import MoonIcon from "./icons/MoonIcon.astro";
-
-import Navbar from "./Navbar.astro";
+import ToggleTheme from "@/components/ToggleTheme.astro";
 ---
 
-<header class="flex items-center md:px-0">
-  <div id="logo" class="mt-4">
-    <Image
-      class="block dark:hidden"
-      src={LogoBlack}
-      alt="A black logo of an warrior who looks like an spartan using a notebook for programming"
-      width={75}
-      height={75}
-    />
-    <Image
-      class="hidden dark:block"
-      src={LogoWhite}
-      alt="A white logo of an warrior who looks like an spartan using a notebook for programming"
-      width={75}
-      height={75}
-    />
-  </div>
-  <Navbar />
-  <div
-    id="theme-mode"
-    class="hidden rounded-md bg-light_contrast dark:bg-dark_contrast md:flex md:gap-6 md:px-4 md:py-2"
-  >
-    <SunIcon class="cursor-pointer sun-icon text-primary dark:text-dark_text" />
-    <MoonIcon
-      class="cursor-pointer moon-icon text-light_text dark:text-primary"
-    />
-  </div>
-  <div id="menu-icon" class="absolute top-10 right-8 md:relative md:hidden">
-    <MenuIcon
-      width={32}
-      height={32}
-      class="text-light_text dark:text-dark_text"
-    />
+<header class="w-full bg-foreground sticky top-0 left-0">
+  <div class="h-16 container flex items-center justify-between">
+    <div class="flex items-center gap-4 md:gap-6">
+      <a href="https://github.com/devguerreiro" target="_blank">
+        <GitHubIcon className="w-4 md:w-6" />
+      </a>
+      <a href="https://linkedin.com/in/devguerreiro" target="_blank">
+        <LinkedInIcon className="w-4 md:w-6" />
+      </a>
+      <a href="https://www.instagram.com/devguerreiro" target="_blank">
+        <InstagramIcon className="w-4 md:w-6" />
+      </a>
+      <a href="https://www.twitch.tv/devguerreiro" target="_blank">
+        <TwitchIcon className="w-4 md:w-6" />
+      </a>
+    </div>
+    <div>
+      <ToggleTheme client:load />
+    </div>
   </div>
 </header>
-
-<script>
-  const menuIcon = document.querySelector("#menu-icon");
-  if (menuIcon) {
-    menuIcon.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const navbar = document.querySelector("#navbar");
-      if (navbar) navbar?.classList.toggle("hidden");
-    });
-  }
-
-  const sunIcon = document.querySelector("#theme-mode .sun-icon");
-  if (sunIcon) {
-    sunIcon.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const doc = document.documentElement;
-      if (doc.classList.contains("dark")) {
-        doc.classList.remove("dark");
-      }
-    });
-  }
-
-  const moonIcon = document.querySelector("#theme-mode .moon-icon");
-  if (moonIcon) {
-    moonIcon.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const doc = document.documentElement;
-      if (!doc.classList.contains("dark")) {
-        doc.classList.add("dark");
-      }
-    });
-  }
-</script>
