@@ -43,12 +43,12 @@ const formatDate = (date: string) => {
           </div>
           <hr class="my-4" />
           <div class="space-y-4 flex flex-col flex-grow">
-            <p class="flex-grow text-xs md:text-sm">{repo.description}</p>
-            <div class="flex">
+            <p class="text-xs md:text-sm">{repo.description}</p>
+            <div class="flex gap-2 flex-wrap flex-grow">
               {repo.topics
                 .filter((topic: any) => topic !== "portfolio")
                 .map((topic: any) => (
-                  <div class="text-[10px] bg-primary rounded text-white px-4 py-2 uppercase">
+                  <div class="h-fit text-[10px] bg-primary rounded text-white px-2 py-1 uppercase">
                     {topic}
                   </div>
                 ))}
