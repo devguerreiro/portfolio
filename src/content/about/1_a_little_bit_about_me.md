@@ -3,16 +3,12 @@ topic: "A little bit about me"
 emoji: "🧩"
 ---
 
-In my spare time I usually like to watch some movie, and my favorite kinds are bad comedy, action, thriller, slasher, escape room movies and sci-fi. 
+In my spare time I usually like to watch some movie, and my favorite kinds are bad comedy, action, thriller, slasher, escape room movies and sci-fi. Also, I like to spare a lot of time watching mystery series or action anime like Demon Slayer, Jujutsu Kaisen.
 
 <br/>
 
-Also, I really appreciate going out to try new foods on different restaurants or I go to the theater. 
+I really appreciate going out to try new foods on different restaurants or going to the theater. I'm a very good critic. Feel free to ask recommendations 😁.
 
 <br/>
 
-Sometimes I play games on my computer and board games with friends. 
-
-<br/>
-
-And when I want to go messy I go out with friends to parties 🕺
+Sometimes I play games on my computer or board games with friends, and when I want to be messy I go out with friends to parties 🕺.
