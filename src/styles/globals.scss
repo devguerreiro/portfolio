@@ -76,12 +76,16 @@
   }
 
   body {
-    @apply bg-background text-text tracking-widest;
+    @apply bg-background text-text leading-relaxed tracking-widest text-sm md:text-base;
   }
 
   h1,
   h2,
   h3 {
     @apply font-kelly_slab;
+  }
+
+  hr {
+    @apply border-primary;
   }
 }
