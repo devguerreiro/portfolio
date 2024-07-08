@@ -3,7 +3,7 @@ topic: "Experiences"
 emoji: "👨‍💻"
 ---
 
-I have been working as a developer since 2019, when I became a scholarship developer and I started working on a project of a event management system. This project gave me the opportunity to get experience with development using Python and Django, and also HTML, CSS, Javascript and Postgres database.
+I have been working as a developer since 2019, when I became a scholarship developer and I started working on a project of an event management system. This project gave me the opportunity to get experience with development using Python and Django, and also HTML, CSS, Javascript and Postgres database.
 
 <br/>
 
@@ -11,7 +11,7 @@ In 2020, I was invited to work on another project of a student management system
 
 <br/>
 
-After that, in 2021, I was recommended by my teacher to work as a software engineer on a project of a logistic company. I did put in practice all the knowledge I got since then. The project was a rewrite of a legacy system using modern technologies and techniques, and for that, I started talking to the users to understand how did it works and also to collect feedbacks for improvements on the new version. During the development we did meetings to align and plan features to delivery, as we made use of Extreme Programming for a efficient delivery, and in these meetings I actively participated bringing back users pains to fix those issues.
+After that, in 2021, I was recommended by my teacher to work as a software engineer on a project of a logistic company. I did put in practice all the knowledge I got since then. The project was a rewrite of a legacy system using modern technologies and techniques, and for that, I started talking to the users to understand how did it works and also to collect feedbacks for improvements on the new version. During the development we did meetings to align and plan features to delivery, as we made use of Extreme Programming for an efficient delivery, and in these meetings I actively participated bringing back users pains to fix those issues.
 
 <br/>
 

@@ -3,7 +3,7 @@ topic: "Who I am"
 emoji: "🤫"
 ---
 
-I am a extroverted, determined, proactive and ambitious person.
+I am an extroverted, determined, proactive and ambitious person.
 
 <br/>
 
