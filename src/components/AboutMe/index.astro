@@ -10,13 +10,15 @@ const aboutCollectionRendered = await Promise.all(
 );
 ---
 
-<section class="container space-y-12">
-  <h2 class="text-primary text-2xl text-center md:text-2xl lg:text-3xl">About me</h2>
+<section class="container space-y-6 md:space-y-12">
+  <h2 class="text-primary text-2xl text-center md:text-2xl lg:text-3xl">
+    About me
+  </h2>
   {
     aboutCollectionRendered.map((section) => (
       <section class="space-y-4">
         <h3 class="text-secondary text-xl md:text-xl lg:text-2xl">
-          {section.data.emoji + section.data.topic}
+          {section.data.emoji + " " + section.data.topic}
         </h3>
         <div class="text-justify">
           <section.body.Content />
