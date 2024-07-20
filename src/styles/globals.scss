@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 95%;
+    --background: 0 0% 96%;
     --foreground: 0 0% 100%;
 
     --text: 221 30% 15%;
@@ -83,6 +83,14 @@
   h2,
   h3 {
     @apply font-kelly_slab;
+  }
+
+  h2 {
+    @apply text-lg md:text-xl lg:text-2xl;
+  }
+
+  h3 {
+    @apply text-base md:text-lg lg:text-xl;
   }
 
   hr {

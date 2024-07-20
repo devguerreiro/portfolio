@@ -17,10 +17,8 @@ const formatDate = (date: string) => {
 };
 ---
 
-<section class="container space-y-6 md:space-y-12">
-  <h2 class="text-primary text-2xl text-center md:text-2xl lg:text-3xl">
-    Projects
-  </h2>
+<section class="container space-y-6 md:space-y-8 lg:space-y-10">
+  <h2 class="text-primary text-center">Projects</h2>
   <p>
     I have already made a lot of public projects, but those are web specific and
     the most complete I made off work.
@@ -30,16 +28,16 @@ const formatDate = (date: string) => {
   >
     {
       portfolioReposOrderByDateDesc.map((repo: any) => (
-        <div class="p-6 rounded-md tiny-shadow flex flex-col bg-foreground hover:scale-110">
+        <div class="p-6 rounded tiny-shadow flex flex-col bg-foreground hover:scale-110">
           <div class="flex justify-between items-center">
-            <h2 class="w-56 text-secondary text-lg tracking-wide overflow-hidden text-ellipsis whitespace-nowrap md:w-4/5 lg:w-64 lg:text-xl xl:w-64 2xl:w-72">
+            <h3 class="w-56 text-secondary tracking-wide overflow-hidden text-ellipsis whitespace-nowrap md:w-4/5 lg:w-64 xl:w-64 2xl:w-72">
               <a href={repo.html_url} target="_blank">
                 <b>{repo.full_name}</b>
               </a>
-            </h2>
+            </h3>
           </div>
           <hr class="my-4" />
-          <div class="space-y-4 flex flex-col flex-grow">
+          <div class="space-y-4 flex flex-col flex-grow md:space-y-6">
             <p class="text-xs md:text-sm">{repo.description}</p>
             <div class="flex gap-2 flex-wrap flex-grow">
               {repo.topics
@@ -51,15 +49,15 @@ const formatDate = (date: string) => {
                 ))}
             </div>
             <div class="w-fit ml-auto">
-              <span class="px-2 py-1 rounded-md self-end bg-background">
+              <span class="px-2 py-1 rounded self-end bg-background text-xs md:text-sm">
                 📅 {formatDate(repo.created_at)}
               </span>
             </div>
           </div>
           <div class="mt-6">
             <a href={repo.html_url} target="_blank">
-              <button class="w-full text-primary text-base font-semibold hover:animate-bounce lg:text-lg">
-                See more
+              <button class="w-full text-primary text-xs font-semibold hover:animate-bounce md:text-sm lg:text-base">
+                Open project
               </button>
             </a>
           </div>

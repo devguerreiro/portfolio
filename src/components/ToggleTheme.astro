@@ -3,12 +3,12 @@ import DarkModeIcon from "./icons/DarkModeIcon.astro";
 import LightModeIcon from "./icons/LightModeIcon.astro";
 ---
 
-<div class="bg-background rounded-lg shadow flex items-center gap-6 px-4 py-2">
-  <button type="button" id="dark">
-    <DarkModeIcon className="dark:text-primary" />
+<div class="bg-background rounded shadow flex items-center gap-2 px-2">
+  <button type="button" id="dark" class="p-2">
+    <DarkModeIcon className="w-4 dark:text-primary md:w-5 lg:w-6" />
   </button>
-  <button type="button" id="light">
-    <LightModeIcon className="dark:text-[#E1E1E1]" />
+  <button type="button" id="light" class="p-2">
+    <LightModeIcon className="w-4 dark:text-[#E1E1E1] md:w-5 lg:w-6" />
   </button>
 </div>
 
