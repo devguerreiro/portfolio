@@ -54,11 +54,13 @@ const formatDate = (date: string) => {
               </span>
             </div>
           </div>
-          <div class="mt-6">
-            <a href={repo.html_url} target="_blank">
-              <button class="w-full text-primary text-xs font-semibold hover:animate-bounce md:text-sm lg:text-base">
-                Open project
-              </button>
+          <div class="mt-6 mx-auto hover:animate-bounce">
+            <a
+              href={repo.html_url}
+              target="_blank"
+              class="py-2 text-primary text-xs font-semibold md:text-sm lg:text-base"
+            >
+              Open project
             </a>
           </div>
         </div>

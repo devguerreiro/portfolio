@@ -4,10 +4,10 @@ import LightModeIcon from "./icons/LightModeIcon.astro";
 ---
 
 <div class="bg-background rounded shadow flex items-center gap-2 px-2">
-  <button type="button" id="dark" class="p-2">
+  <button type="button" id="dark" class="p-2" aria-label="Activate dark mode">
     <DarkModeIcon className="w-4 dark:text-primary md:w-5 lg:w-6" />
   </button>
-  <button type="button" id="light" class="p-2">
+  <button type="button" id="light" class="p-2" aria-label="Activate light mode">
     <LightModeIcon className="w-4 dark:text-[#E1E1E1] md:w-5 lg:w-6" />
   </button>
 </div>
