@@ -67,8 +67,6 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        kelly_slab: ["Kelly Slab"],
-        inter: ["Inter"],
         sans: ["Inter"],
       },
     },

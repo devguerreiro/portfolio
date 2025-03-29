@@ -78,22 +78,4 @@
   body {
     @apply bg-background text-text leading-relaxed tracking-widest text-sm md:text-base;
   }
-
-  h1,
-  h2,
-  h3 {
-    @apply font-kelly_slab;
-  }
-
-  h2 {
-    @apply text-lg md:text-xl lg:text-2xl;
-  }
-
-  h3 {
-    @apply text-base md:text-lg lg:text-xl;
-  }
-
-  hr {
-    @apply border-primary;
-  }
 }

@@ -1,13 +1,9 @@
 ---
 import "@/styles/globals.scss";
 
-import "@fontsource/kelly-slab";
 import "@fontsource/inter";
 
 import Header from "@/components/Header.astro";
-import Greetings from "@/components/Greetings/index.astro";
-import AboutMe from "@/components/AboutMe/index.astro";
-import Projects from "@/components/Projects/index.astro";
 import Footer from "@/components/Footer.astro";
 ---
 
@@ -19,19 +15,13 @@ import Footer from "@/components/Footer.astro";
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="My personal website with some informations about me and my career"
+      content="My personal website with some information about me and my career"
     />
     <title>Portfolio</title>
   </head>
   <body>
     <Header />
-    <div class="space-y-12 md:space-y-16 lg:space-y-20">
-      <Greetings />
-      <hr />
-      <AboutMe />
-      <hr />
-      <Projects />
-    </div>
+    <div class="space-y-12 md:space-y-16 lg:space-y-20"></div>
     <Footer />
   </body>
 </html>
