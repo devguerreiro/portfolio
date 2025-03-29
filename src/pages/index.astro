@@ -3,8 +3,17 @@ import "@/styles/globals.scss";
 
 import "@fontsource/inter";
 
+import HireMeButton from "@/components/HireMeButton.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+
+import NextjsIcon from "@/components/icons/tech/NextjsIcon.astro";
+import NestjsIcon from "@/components/icons/tech/NestjsIcon.astro";
+import TypeScriptIcon from "@/components/icons/tech/TypeScriptIcon.astro";
+import PythonIcon from "@/components/icons/tech/PythonIcon.astro";
+import DjangoIcon from "@/components/icons/tech/DjangoIcon.astro";
+import FastAPIIcon from "@/components/icons/tech/FastAPIIcon.astro";
+import AstroIcon from "@/components/icons/tech/AstroIcon.astro";
 ---
 
 <html lang="en">
@@ -15,13 +24,100 @@ import Footer from "@/components/Footer.astro";
     <meta name="generator" content={Astro.generator} />
     <meta
       name="description"
-      content="My personal website with some information about me and my career"
+      content="My website with highlights about my job"
     />
-    <title>Portfolio</title>
+    <title>@devguerreiro</title>
   </head>
   <body>
     <Header />
-    <div class="space-y-12 md:space-y-16 lg:space-y-20"></div>
+    <main
+      class="-mt-16 container h-screen flex flex-col justify-center items-center gap-2 md:gap-4 relative"
+    >
+      <h1
+        class="text-center text-balance text-3xl md:text-6xl lg:text-7xl text-primary font-semibold"
+      >
+        I'm a Full Stack Software Engineer
+      </h1>
+      <span class="block text-base md:text-3xl lg:text-4xl font-medium"
+        >and <strong>specialist</strong> at building SaaS</span
+      >
+      <HireMeButton class="mt-6" />
+      <div
+        class="w-fit flex gap-6 md:gap-8 absolute bottom-16 left-0 right-0 mx-auto"
+      >
+        <div title="Next.js's icon">
+          <NextjsIcon class="w-5 md:w-6" />
+        </div>
+        <div title="Nest.js's icon">
+          <NestjsIcon class="w-5 md:w-6" />
+        </div>
+        <div title="TypeScript's icon">
+          <TypeScriptIcon class="w-5 md:w-6" />
+        </div>
+        <div title="Python's icon">
+          <PythonIcon class="w-5 md:w-6" />
+        </div>
+        <div title="Django's icon">
+          <DjangoIcon class="w-5 md:w-6" />
+        </div>
+        <div title="FastAPI's icon">
+          <FastAPIIcon class="w-5 md:w-6" />
+        </div>
+        <div title="Astro's icon">
+          <AstroIcon class="w-5 md:w-6" />
+        </div>
+      </div>
+    </main>
+    <section class="bg-foreground">
+      <div class="container section">
+        <h2 class="section-title">Services</h2>
+        <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+          <div class="service">
+            <span>SaaS Development</span>
+          </div>
+          <div class="service">
+            <span>LP's Development</span>
+          </div>
+          <div class="service">
+            <span>MVP's Development</span>
+          </div>
+          <div class="service">
+            <span>IT Consulting</span>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <p>Do you need some of those services?</p>
+          <HireMeButton class="w-fit mx-auto" label="Get in touch" />
+        </div>
+      </div>
+    </section>
+    <section class="section container">
+      <div class="space-y-4">
+        <h2 class="section-title">Projects</h2>
+        <p>These are some projects I've worked on</p>
+      </div>
+      <div class="grid grid-cols-2 gap-8 md:grid-cols-3">
+        <a
+          href="https://dev.checkup.elibre.com.br/"
+          target="_blank"
+          class="project">Elibré Saúde Mental</a
+        >
+        <a
+          href="https://energia.ultragaz.com.br/consulta"
+          target="_blank"
+          class="project">Ultragaz Energia Inteligente</a
+        >
+        <a href="https://menant.com.br/" target="_blank" class="project"
+          >Menant</a
+        >
+      </div>
+      <div class="space-y-4">
+        <p class="text-center">
+          Do you have something in mind to get off the drawing board?
+        </p>
+        <HireMeButton class="w-fit mx-auto" label="Let's build together!" />
+      </div>
+    </section>
     <Footer />
   </body>
 </html>
