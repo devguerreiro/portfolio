@@ -1,0 +1,64 @@
+---
+
+---
+
+<section class="py-20 px-6 border-t border-gray-800">
+  <h2 class="text-3xl font-bold text-center mb-10 text-[#A8CA58]">Portfólio</h2>
+  <div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+    {
+      [
+        {
+          name: "Questionário – Elibré",
+          desc: "MVP para análise da saúde mental e captação de leads.",
+          techs: ["TypeScript", "Next.js", "Nest.js"],
+          link: "https://stg.checkup.elibre.com.br/",
+        },
+        {
+          name: "Jornada Simplificada – Ultragaz",
+          desc: "MVP para captação de leads com foco em experiência do usuário.",
+          techs: ["TypeScript", "Next.js", "Python", "FastAPI", "Django"],
+          link: "https://energia.ultragaz.com.br/consulta",
+        },
+        {
+          name: "SIGPAE – SME SP",
+          desc: "Plataforma para gestão do programa de alimentação escolar pública.",
+          techs: ["Python", "Django", "JavaScript", "React.js"],
+          link: "https://sigpae.sme.prefeitura.sp.gov.br/login",
+        },
+        {
+          name: "Análise de Crédito – Neocredit",
+          desc: "Plataforma B2B para análise de crédito automatizada.",
+          techs: ["Python", "FastAPI", "JavaScript", "React.js"],
+          link: "https://app.neocredit.com.br/",
+        },
+        {
+          name: "Triagem – Rota Certa",
+          desc: "Plataforma multi-tenancy para gestão de transporte e logística.",
+          techs: ["Python", "Django", "JavaScript", "Vue.js"],
+          link: "https://triagem.rotacertasistemas.com.br",
+        },
+        {
+          name: "Gestão de Eventos – IFC",
+          desc: "Plataforma multi-tenancy para gestão de eventos dos institutos federais catarinenses.",
+          techs: ["Python", "Django", "JavaScript", "HTML", "CSS"],
+          link: "https://centraldeeventos.ifc.edu.br/eventos/",
+        },
+      ].map((project) => (
+        <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow hover:shadow-lg transition flex flex-col gap-1">
+          <h3 class="text-xl font-semibold text-white">{project.name}</h3>
+          <p class="mt-2 text-gray-300">{project.desc}</p>
+          <div class="mt-2 text-sm text-gray-400 italic">
+            Tecnologias: {project.techs.join(", ")}
+          </div>
+          <a
+            href={project.link}
+            class="text-[#A8CA58] mt-auto inline-block hover:underline"
+            target="_blank"
+          >
+            Ver projeto
+          </a>
+        </div>
+      ))
+    }
+  </div>
+</section>

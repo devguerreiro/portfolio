@@ -1,0 +1,46 @@
+---
+
+---
+
+<section class="py-20 px-6 border-t border-gray-800">
+  <h2 class="text-3xl font-bold text-center mb-10 text-[#A8CA58]">
+    Experiência Profissional
+  </h2>
+  <div class="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+    {
+      [
+        {
+          company: "AMcom",
+          role: "Desenvolvedor Fullstack Sênior",
+          period: "2023–2025",
+          desc: "Liderando o desenvolvimento, trabalhei em novas funcionalidades e melhorias do sistema SIGPAE para a SME de São Paulo. Conduzi o desenvolvimento da Jornada Completa (antiga) e da Jornada Simplificada (nova) para captação de leads da Ultragaz Energia Inteligente. Além disso, liderei a criação de um MVP de captação e geração de leads para a Elibré, entregue em abril de 2025.",
+        },
+        {
+          company: "Neocredit",
+          role: "Engenheiro de Software",
+          period: "2022–2023",
+          desc: "Atuei como full-stack no desenvolvimento das automações das políticas de análise de crédito de grandes clientes. Contribui também na melhoria contínua de processos internos identificando falhas e gaps nas etapas, visando atingir a melhor performance possível do fluxo ponta a ponta, com auxilio de boas práticas e metodologias ágeis utilizadas pelo mercado e que faziam sentido para o contexto interno da empresa e equipes. Além disso, prestei suporte aos demais membros da equipe com menos conhecimento técnico ou dos processos internos da fábrica de software, através de code review, conversas one-to-one, pair programming e até mesmo conselhos.",
+        },
+        {
+          company: "Grupo Rota Certa",
+          role: "Engenheiro de Software",
+          period: "2021–2022",
+          desc: "Atuei como full-stack no desenvolvimento de um SAAS multi-tenancy para a área de logística. Fui responsável por falar com alguns usuários do sistema legado para entender o seu funcionamento e entender as principais dores que eles tinham ao utilizá-lo, e por repassar estes pontos de melhoria para o proprietário e o restante da equipe para tomarmos as decisões do que seria feito e como seria feito. Contribui também no desenvolvimento de cada funcionalidade da nova versão do sistema e no apoio técnico aos demais membros da equipe.",
+        },
+        {
+          company: "Fábrica de Software",
+          role: "Desenvolvedor Web",
+          period: "2019–2020",
+          desc: "Em projetos SAAS multi-tenancy para Institutos Federais, trabalhei como full-stack no sistema de gestão de eventos (cadastro, palestrantes, participantes, certificados), atuando na correção de bugs, desenvolvimento de funcionalidades e propondo melhorias. Como backend, desenvolvi uma API RESTful para gestão de atendimentos estudantis, sendo responsável pela modelagem do banco de dados (MER), endpoints com testes, CI/CD (GitLab), documentação e mentoria do desenvolvedor frontend.",
+        },
+      ].map((exp) => (
+        <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold text-white">{exp.company}</h3>
+          <p class="text-sm text-gray-400 italic">{exp.period}</p>
+          <p class="mt-2 text-gray-300">{exp.role}</p>
+          <p class="text-sm text-gray-400 mt-1">{exp.desc}</p>
+        </div>
+      ))
+    }
+  </div>
+</section>
